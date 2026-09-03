@@ -19,7 +19,7 @@ export function renderLogin(container, onLoginSuccess) {
             <label class="form-label text-xs fw-bold text-uppercase text-muted">Email Address</label>
             <div class="input-group">
               <span class="input-group-text bg-light border-end-0 text-muted"><i class="bi bi-envelope"></i></span>
-              <input type="email" id="login-email" class="form-control border-start-0 ps-0" placeholder="user@trcac.edu.in" required>
+              <input type="email" id="login-email" class="form-control border-start-0 ps-0" placeholder="example@gmail.com" required>
             </div>
           </div>
 
@@ -27,7 +27,7 @@ export function renderLogin(container, onLoginSuccess) {
             <label class="form-label text-xs fw-bold text-uppercase text-muted">Password</label>
             <div class="input-group">
               <span class="input-group-text bg-light border-end-0 text-muted"><i class="bi bi-lock"></i></span>
-              <input type="password" id="login-password" class="form-control border-start-0 ps-0" placeholder="••••••••" required>
+              <input type="password" id="login-password" class="form-control border-start-0 ps-0" placeholder="password" required>
             </div>
           </div>
 
