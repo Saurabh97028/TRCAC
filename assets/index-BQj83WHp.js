@@ -16,7 +16,7 @@ import{initializeApp as M}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
             <label class="form-label text-xs fw-bold text-uppercase text-muted">Email Address</label>
             <div class="input-group">
               <span class="input-group-text bg-light border-end-0 text-muted"><i class="bi bi-envelope"></i></span>
-              <input type="email" id="login-email" class="form-control border-start-0 ps-0" placeholder="user@trcac.edu.in" required>
+              <input type="email" id="login-email" class="form-control border-start-0 ps-0" placeholder="example@gmail.com" required>
             </div>
           </div>
 
@@ -24,7 +24,7 @@ import{initializeApp as M}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
             <label class="form-label text-xs fw-bold text-uppercase text-muted">Password</label>
             <div class="input-group">
               <span class="input-group-text bg-light border-end-0 text-muted"><i class="bi bi-lock"></i></span>
-              <input type="password" id="login-password" class="form-control border-start-0 ps-0" placeholder="••••••••" required>
+              <input type="password" id="login-password" class="form-control border-start-0 ps-0" placeholder="password" required>
             </div>
           </div>
 
@@ -41,15 +41,15 @@ import{initializeApp as M}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
         </div>
       </div>
     </div>
-  `;const d=n.querySelector("#login-form"),i=n.querySelector("#login-alert");d.addEventListener("submit",t=>{t.preventDefault();const o=n.querySelector("#login-email").value,u=n.querySelector("#login-password").value,c=y.login(o,u);c.success?a():(i.textContent=c.message,i.classList.remove("d-none"))})}function B(n,a){var b;const d=y.getCurrentUser(),i=p.getStudentFullProfiles(),t=p.getTable("COMPANY"),o=p.getJobPostingsDetailed(),u=p.getApplicationsDetailed(),c=p.getTable("PLACEMENT_RECORD"),r=i.length,h=i.filter(f=>f.placement_status==="Placed").length,v=r>0?(h/r*100).toFixed(1):0,m=o.filter(f=>f.status==="Open").length,l=c.reduce((f,g)=>g.ctc_offered>f?g.ctc_offered:f,0),e=c.length>0?(c.reduce((f,g)=>f+g.ctc_offered,0)/c.length).toFixed(2):"0.00";let s="";if(d.role_id===3){const f=i.find(x=>x.user_id===d.user_id)||{},g=u.filter(x=>x.student_id===f.student_id);s=`
+  `;const d=n.querySelector("#login-form"),i=n.querySelector("#login-alert");d.addEventListener("submit",t=>{t.preventDefault();const o=n.querySelector("#login-email").value,u=n.querySelector("#login-password").value,c=y.login(o,u);c.success?a():(i.textContent=c.message,i.classList.remove("d-none"))})}function B(n,a){var b;const d=y.getCurrentUser(),i=p.getStudentFullProfiles(),t=p.getTable("COMPANY"),o=p.getJobPostingsDetailed(),u=p.getApplicationsDetailed(),c=p.getTable("PLACEMENT_RECORD"),r=i.length,h=i.filter(g=>g.placement_status==="Placed").length,v=r>0?(h/r*100).toFixed(1):0,m=o.filter(g=>g.status==="Open").length,l=c.reduce((g,f)=>f.ctc_offered>g?f.ctc_offered:g,0),e=c.length>0?(c.reduce((g,f)=>g+f.ctc_offered,0)/c.length).toFixed(2):"0.00";let s="";if(d.role_id===3){const g=i.find(x=>x.user_id===d.user_id)||{},f=u.filter(x=>x.student_id===g.student_id);s=`
       <div class="row g-4 mb-4">
         <div class="col-md-4">
           <div class="card card-stat p-3 border-0 bg-primary text-white">
             <div class="d-flex justify-content-between align-items-center">
               <div>
                 <small class="text-white-50 text-uppercase fw-semibold text-xs">My Profile Status</small>
-                <h4 class="fw-bold mb-0 text-white mt-1">${f.placement_status||"Unplaced"}</h4>
-                <div class="text-white-50 text-xs mt-1">Roll No: ${f.roll_number||"N/A"} • CGPA: ${f.cgpa?f.cgpa.toFixed(2):"0.00"}</div>
+                <h4 class="fw-bold mb-0 text-white mt-1">${g.placement_status||"Unplaced"}</h4>
+                <div class="text-white-50 text-xs mt-1">Roll No: ${g.roll_number||"N/A"} • CGPA: ${g.cgpa?g.cgpa.toFixed(2):"0.00"}</div>
               </div>
               <div class="icon-box bg-white bg-opacity-20 text-white">
                 <i class="bi bi-mortarboard fs-3"></i>
@@ -62,7 +62,7 @@ import{initializeApp as M}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
             <div class="d-flex justify-content-between align-items-center">
               <div>
                 <small class="text-white-50 text-uppercase fw-semibold text-xs">My Drives Applied</small>
-                <h4 class="fw-bold mb-0 text-white mt-1">${g.length}</h4>
+                <h4 class="fw-bold mb-0 text-white mt-1">${f.length}</h4>
                 <div class="text-white-50 text-xs mt-1">Active drives tracked</div>
               </div>
               <div class="icon-box bg-white bg-opacity-20 text-white">
@@ -76,7 +76,7 @@ import{initializeApp as M}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
             <div class="d-flex justify-content-between align-items-center">
               <div>
                 <small class="text-white-50 text-uppercase fw-semibold text-xs">Shortlisted Drives</small>
-                <h4 class="fw-bold mb-0 text-white mt-1">${g.filter(x=>x.status==="Shortlisted"||x.status==="Selected").length}</h4>
+                <h4 class="fw-bold mb-0 text-white mt-1">${f.filter(x=>x.status==="Shortlisted"||x.status==="Selected").length}</h4>
                 <div class="text-white-50 text-xs mt-1">Next interview rounds ready</div>
               </div>
               <div class="icon-box bg-white bg-opacity-20 text-white">
@@ -104,7 +104,7 @@ import{initializeApp as M}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
               </tr>
             </thead>
             <tbody>
-              ${g.length===0?'<tr><td colspan="5" class="text-center py-4 text-muted">You have not applied to any job drives yet.</td></tr>':g.map(x=>`
+              ${f.length===0?'<tr><td colspan="5" class="text-center py-4 text-muted">You have not applied to any job drives yet.</td></tr>':f.map(x=>`
                   <tr>
                     <td>
                       <div class="fw-bold text-dark">${x.job_title}</div>
@@ -124,15 +124,15 @@ import{initializeApp as M}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
           </table>
         </div>
       </div>
-    `}else if(d.role_id===4){const f=p.getTable("USER").find(_=>_.user_id===d.user_id),g=t.find(_=>_.contact_email===f.email)||t[0],x=o.filter(_=>_.company_id===g.company_id),w=u.filter(_=>x.some(C=>C.job_id===_.job_id));s=`
+    `}else if(d.role_id===4){const g=p.getTable("USER").find(_=>_.user_id===d.user_id),f=t.find(_=>_.contact_email===g.email)||t[0],x=o.filter(_=>_.company_id===f.company_id),w=u.filter(_=>x.some(C=>C.job_id===_.job_id));s=`
       <div class="row g-4 mb-4">
         <div class="col-md-4">
           <div class="card card-stat p-3 border-0 bg-navy text-white">
             <div class="d-flex justify-content-between align-items-center">
               <div>
                 <small class="text-white-50 text-uppercase fw-semibold text-xs">Company Profile</small>
-                <h5 class="fw-bold mb-0 text-white mt-1">${g.company_name}</h5>
-                <div class="text-white-50 text-xs mt-1">${g.sector} • ${g.location}</div>
+                <h5 class="fw-bold mb-0 text-white mt-1">${f.company_name}</h5>
+                <div class="text-white-50 text-xs mt-1">${f.sector} • ${f.location}</div>
               </div>
               <div class="icon-box bg-white bg-opacity-20 text-white">
                 <i class="bi bi-building fs-3"></i>
@@ -252,16 +252,16 @@ import{initializeApp as M}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
                   </tr>
                 </thead>
                 <tbody>
-                  ${u.slice(0,5).map(f=>`
+                  ${u.slice(0,5).map(g=>`
                     <tr>
                       <td>
-                        <div class="fw-semibold text-dark">${f.student_name}</div>
-                        <small class="text-muted">${f.roll_number}</small>
+                        <div class="fw-semibold text-dark">${g.student_name}</div>
+                        <small class="text-muted">${g.roll_number}</small>
                       </td>
-                      <td class="text-muted text-sm">${f.branch}</td>
-                      <td class="fw-semibold text-dark text-sm">${f.job_title}</td>
-                      <td class="text-muted text-sm">${f.company_name}</td>
-                      <td><span class="badge badge-status badge-${f.status.toLowerCase()}">${f.status}</span></td>
+                      <td class="text-muted text-sm">${g.branch}</td>
+                      <td class="fw-semibold text-dark text-sm">${g.job_title}</td>
+                      <td class="text-muted text-sm">${g.company_name}</td>
+                      <td><span class="badge badge-status badge-${g.status.toLowerCase()}">${g.status}</span></td>
                     </tr>
                   `).join("")}
                 </tbody>
@@ -306,7 +306,7 @@ import{initializeApp as M}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
 
       ${s}
     </div>
-  `,n.querySelectorAll(".navigate-btn").forEach(f=>{f.addEventListener("click",()=>{const g=f.getAttribute("data-page");a(g)})}),(b=n.querySelector("#refresh-dashboard"))==null||b.addEventListener("click",()=>{B(n,a)})}function H(n){if(y.getCurrentUser().role_id!==1){n.innerHTML=`
+  `,n.querySelectorAll(".navigate-btn").forEach(g=>{g.addEventListener("click",()=>{const f=g.getAttribute("data-page");a(f)})}),(b=n.querySelector("#refresh-dashboard"))==null||b.addEventListener("click",()=>{B(n,a)})}function H(n){if(y.getCurrentUser().role_id!==1){n.innerHTML=`
       <div class="alert alert-danger rounded-3 p-4">
         <h5 class="fw-bold"><i class="bi bi-shield-lock-fill me-2"></i>Access Restricted</h5>
         <p class="mb-0">User Management is restricted to System Administrator accounts only.</p>
@@ -416,7 +416,7 @@ import{initializeApp as M}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
     `,h.innerHTML=`
       <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
       <button type="button" class="btn btn-primary rounded-pill px-4" id="save-edit-user">Save Changes</button>
-    `;const v=new bootstrap.Modal(document.getElementById("ctpmsModal"));v.show(),document.getElementById("save-edit-user").onclick=()=>{const m=document.getElementById("edit-user-name").value,l=document.getElementById("edit-user-email").value,e=parseInt(document.getElementById("edit-user-role").value);p.updateRow("USER",t,{name:m,email:l,role_id:e}),v.hide(),d()}}}function G(n){const a=y.getCurrentUser(),d=a.role_id===1||a.role_id===2;function i(){const u=p.getStudentFullProfiles(),c=n.querySelector("#filter-branch").value,r=n.querySelector("#filter-status").value,h=parseFloat(n.querySelector("#filter-cgpa").value)||0,v=n.querySelector("#search-student").value.toLowerCase(),m=u.filter(e=>{const s=!c||e.branch===c,b=!r||e.placement_status===r,f=e.cgpa>=h,g=!v||e.name.toLowerCase().includes(v)||e.roll_number.toLowerCase().includes(v)||e.skills.toLowerCase().includes(v);return s&&b&&f&&g}),l=n.querySelector("#students-tbody");if(l){if(m.length===0){l.innerHTML='<tr><td colspan="7" class="text-center py-4 text-muted">No students matching the filter criteria.</td></tr>';return}l.innerHTML=m.map(e=>`
+    `;const v=new bootstrap.Modal(document.getElementById("ctpmsModal"));v.show(),document.getElementById("save-edit-user").onclick=()=>{const m=document.getElementById("edit-user-name").value,l=document.getElementById("edit-user-email").value,e=parseInt(document.getElementById("edit-user-role").value);p.updateRow("USER",t,{name:m,email:l,role_id:e}),v.hide(),d()}}}function G(n){const a=y.getCurrentUser(),d=a.role_id===1||a.role_id===2;function i(){const u=p.getStudentFullProfiles(),c=n.querySelector("#filter-branch").value,r=n.querySelector("#filter-status").value,h=parseFloat(n.querySelector("#filter-cgpa").value)||0,v=n.querySelector("#search-student").value.toLowerCase(),m=u.filter(e=>{const s=!c||e.branch===c,b=!r||e.placement_status===r,g=e.cgpa>=h,f=!v||e.name.toLowerCase().includes(v)||e.roll_number.toLowerCase().includes(v)||e.skills.toLowerCase().includes(v);return s&&b&&g&&f}),l=n.querySelector("#students-tbody");if(l){if(m.length===0){l.innerHTML='<tr><td colspan="7" class="text-center py-4 text-muted">No students matching the filter criteria.</td></tr>';return}l.innerHTML=m.map(e=>`
       <tr>
         <td>
           <div class="fw-bold text-dark">${e.name}</div>
@@ -635,7 +635,7 @@ import{initializeApp as M}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
     `,v.innerHTML=`
       <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
       <button type="button" class="btn btn-primary rounded-pill px-4" id="save-new-company">Save Company</button>
-    `;const m=new bootstrap.Modal(document.getElementById("ctpmsModal"));m.show(),document.getElementById("save-new-company").onclick=()=>{const l=document.getElementById("comp-name").value,e=document.getElementById("comp-sector").value,s=document.getElementById("comp-location").value,b=document.getElementById("comp-email").value,f=document.getElementById("comp-website").value;!l||!b||(p.insertRow("COMPANY",{company_name:l,sector:e,location:s,contact_email:b,website:f}),m.hide(),t())}}function u(r){const v=p.getTable("COMPANY").find(b=>b.company_id===r);if(!v)return;const m=document.getElementById("ctpmsModalTitle"),l=document.getElementById("ctpmsModalBody"),e=document.getElementById("ctpmsModalFooter");m.textContent=`Edit Company: ${v.company_name}`,l.innerHTML=`
+    `;const m=new bootstrap.Modal(document.getElementById("ctpmsModal"));m.show(),document.getElementById("save-new-company").onclick=()=>{const l=document.getElementById("comp-name").value,e=document.getElementById("comp-sector").value,s=document.getElementById("comp-location").value,b=document.getElementById("comp-email").value,g=document.getElementById("comp-website").value;!l||!b||(p.insertRow("COMPANY",{company_name:l,sector:e,location:s,contact_email:b,website:g}),m.hide(),t())}}function u(r){const v=p.getTable("COMPANY").find(b=>b.company_id===r);if(!v)return;const m=document.getElementById("ctpmsModalTitle"),l=document.getElementById("ctpmsModalBody"),e=document.getElementById("ctpmsModalFooter");m.textContent=`Edit Company: ${v.company_name}`,l.innerHTML=`
       <form id="edit-company-form">
         <div class="mb-3">
           <label class="form-label text-xs fw-bold text-uppercase text-muted">Company Official Name</label>
@@ -661,7 +661,7 @@ import{initializeApp as M}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
     `,e.innerHTML=`
       <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
       <button type="button" class="btn btn-primary rounded-pill px-4" id="save-edit-company">Save Changes</button>
-    `;const s=new bootstrap.Modal(document.getElementById("ctpmsModal"));s.show(),document.getElementById("save-edit-company").onclick=()=>{const b=document.getElementById("edit-comp-name").value,f=document.getElementById("edit-comp-sector").value,g=document.getElementById("edit-comp-location").value,x=document.getElementById("edit-comp-email").value,w=document.getElementById("edit-comp-website").value;p.updateRow("COMPANY",r,{company_name:b,sector:f,location:g,contact_email:x,website:w}),s.hide(),t()}}}function V(n,a){const d=p.getStudentFullProfiles(),i=p.getJobPostingsDetailed(),t=d.find(u=>u.student_id===n),o=i.find(u=>u.job_id===a);if(!t)return{eligible:!1,reason:"Student profile not found."};if(!o)return{eligible:!1,reason:"Job drive not found."};if(o.status!=="Open")return{eligible:!1,reason:`Job drive is currently ${o.status.toLowerCase()}.`};if(t.placement_status==="Placed")return{eligible:!1,reason:"You have already accepted a final placement offer and are ineligible for further drives."};if(t.placement_status==="Opted Out")return{eligible:!1,reason:"Your status is currently set to Opted Out."};if(t.cgpa<o.min_cgpa)return{eligible:!1,reason:`Your CGPA (${t.cgpa.toFixed(2)}) is below the required threshold of ${o.min_cgpa.toFixed(2)}.`};if(o.eligible_branches){const u=o.eligible_branches.split(",").map(h=>h.trim().toLowerCase()),c=t.branch.trim().toLowerCase();if(!u.some(h=>c.includes(h)||h.includes(c)))return{eligible:!1,reason:`Your branch (${t.branch}) is not eligible for this drive. Eligible branches: ${o.eligible_branches}.`}}return{eligible:!0,reason:"Eligible to apply."}}function Y(n,a){var h;const d=y.getCurrentUser(),i=d.role_id===1||d.role_id===2||d.role_id===4,t=d.role_id===3,o=t?p.getTable("STUDENT").find(v=>v.user_id===d.user_id):null,u=t&&o?p.getTable("APPLICATION").filter(v=>v.student_id===o.student_id):[];function c(){const v=p.getJobPostingsDetailed(),m=n.querySelector("#jobs-grid");m&&(m.innerHTML=v.map(l=>{let e=null,s=!1;return t&&o&&(s=u.some(b=>b.job_id===l.job_id),e=V(o.student_id,l.job_id)),`
+    `;const s=new bootstrap.Modal(document.getElementById("ctpmsModal"));s.show(),document.getElementById("save-edit-company").onclick=()=>{const b=document.getElementById("edit-comp-name").value,g=document.getElementById("edit-comp-sector").value,f=document.getElementById("edit-comp-location").value,x=document.getElementById("edit-comp-email").value,w=document.getElementById("edit-comp-website").value;p.updateRow("COMPANY",r,{company_name:b,sector:g,location:f,contact_email:x,website:w}),s.hide(),t()}}}function V(n,a){const d=p.getStudentFullProfiles(),i=p.getJobPostingsDetailed(),t=d.find(u=>u.student_id===n),o=i.find(u=>u.job_id===a);if(!t)return{eligible:!1,reason:"Student profile not found."};if(!o)return{eligible:!1,reason:"Job drive not found."};if(o.status!=="Open")return{eligible:!1,reason:`Job drive is currently ${o.status.toLowerCase()}.`};if(t.placement_status==="Placed")return{eligible:!1,reason:"You have already accepted a final placement offer and are ineligible for further drives."};if(t.placement_status==="Opted Out")return{eligible:!1,reason:"Your status is currently set to Opted Out."};if(t.cgpa<o.min_cgpa)return{eligible:!1,reason:`Your CGPA (${t.cgpa.toFixed(2)}) is below the required threshold of ${o.min_cgpa.toFixed(2)}.`};if(o.eligible_branches){const u=o.eligible_branches.split(",").map(h=>h.trim().toLowerCase()),c=t.branch.trim().toLowerCase();if(!u.some(h=>c.includes(h)||h.includes(c)))return{eligible:!1,reason:`Your branch (${t.branch}) is not eligible for this drive. Eligible branches: ${o.eligible_branches}.`}}return{eligible:!0,reason:"Eligible to apply."}}function Y(n,a){var h;const d=y.getCurrentUser(),i=d.role_id===1||d.role_id===2||d.role_id===4,t=d.role_id===3,o=t?p.getTable("STUDENT").find(v=>v.user_id===d.user_id):null,u=t&&o?p.getTable("APPLICATION").filter(v=>v.student_id===o.student_id):[];function c(){const v=p.getJobPostingsDetailed(),m=n.querySelector("#jobs-grid");m&&(m.innerHTML=v.map(l=>{let e=null,s=!1;return t&&o&&(s=u.some(b=>b.job_id===l.job_id),e=V(o.student_id,l.job_id)),`
         <div class="col-md-6 col-xl-4">
           <div class="card border-0 shadow-sm rounded-4 h-100 p-4 bg-white position-relative">
             <div class="d-flex justify-content-between align-items-start mb-3">
@@ -782,7 +782,7 @@ import{initializeApp as M}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
     `,e.innerHTML=`
       <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
       <button type="button" class="btn btn-primary rounded-pill px-4" id="save-new-drive">Publish Job Drive</button>
-    `;const s=new bootstrap.Modal(document.getElementById("ctpmsModal"));s.show(),document.getElementById("save-new-drive").onclick=()=>{const b=parseInt(document.getElementById("drive-company").value),f=document.getElementById("drive-title").value,g=parseFloat(document.getElementById("drive-cgpa").value),x=parseFloat(document.getElementById("drive-ctc").value),w=document.getElementById("drive-branches").value,_=document.getElementById("drive-deadline").value,C=document.getElementById("drive-desc").value;!f||!C||(p.insertRow("JOB_POSTING",{company_id:b,job_title:f,description:C,min_cgpa:g,eligible_branches:w,ctc:x,deadline:_,status:"Open"}),s.hide(),c())}}}function W(n,a){const d=y.getCurrentUser(),i=d.role_id===3,t=d.role_id===1||d.role_id===2||d.role_id===4,o=i?p.getTable("STUDENT").find(c=>c.user_id===d.user_id):null;function u(){var l,e;let c=p.getApplicationsDetailed();i&&o&&(c=c.filter(s=>s.student_id===o.student_id));const r=((l=n.querySelector("#filter-app-status"))==null?void 0:l.value)||"",h=((e=n.querySelector("#search-app"))==null?void 0:e.value.toLowerCase())||"",v=c.filter(s=>{const b=!r||s.status===r,f=!h||s.student_name.toLowerCase().includes(h)||s.job_title.toLowerCase().includes(h)||s.company_name.toLowerCase().includes(h);return b&&f}),m=n.querySelector("#applications-tbody");if(m){if(v.length===0){m.innerHTML='<tr><td colspan="7" class="text-center py-4 text-muted">No drive applications found matching your criteria.</td></tr>';return}m.innerHTML=v.map(s=>`
+    `;const s=new bootstrap.Modal(document.getElementById("ctpmsModal"));s.show(),document.getElementById("save-new-drive").onclick=()=>{const b=parseInt(document.getElementById("drive-company").value),g=document.getElementById("drive-title").value,f=parseFloat(document.getElementById("drive-cgpa").value),x=parseFloat(document.getElementById("drive-ctc").value),w=document.getElementById("drive-branches").value,_=document.getElementById("drive-deadline").value,C=document.getElementById("drive-desc").value;!g||!C||(p.insertRow("JOB_POSTING",{company_id:b,job_title:g,description:C,min_cgpa:f,eligible_branches:w,ctc:x,deadline:_,status:"Open"}),s.hide(),c())}}}function W(n,a){const d=y.getCurrentUser(),i=d.role_id===3,t=d.role_id===1||d.role_id===2||d.role_id===4,o=i?p.getTable("STUDENT").find(c=>c.user_id===d.user_id):null;function u(){var l,e;let c=p.getApplicationsDetailed();i&&o&&(c=c.filter(s=>s.student_id===o.student_id));const r=((l=n.querySelector("#filter-app-status"))==null?void 0:l.value)||"",h=((e=n.querySelector("#search-app"))==null?void 0:e.value.toLowerCase())||"",v=c.filter(s=>{const b=!r||s.status===r,g=!h||s.student_name.toLowerCase().includes(h)||s.job_title.toLowerCase().includes(h)||s.company_name.toLowerCase().includes(h);return b&&g}),m=n.querySelector("#applications-tbody");if(m){if(v.length===0){m.innerHTML='<tr><td colspan="7" class="text-center py-4 text-muted">No drive applications found matching your criteria.</td></tr>';return}m.innerHTML=v.map(s=>`
       <tr>
         <td>
           <div class="fw-bold text-dark">${s.student_name}</div>
@@ -822,7 +822,7 @@ import{initializeApp as M}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
           `}
         </td>
       </tr>
-    `).join(""),n.querySelectorAll(".update-status-btn").forEach(s=>{s.addEventListener("click",b=>{b.preventDefault();const f=parseInt(s.getAttribute("data-id")),g=s.getAttribute("data-status");if(p.updateRow("APPLICATION",f,{status:g}),g==="Selected"&&t){const x=p.getApplicationsDetailed().find(w=>w.application_id===f);confirm(`Student ${x.student_name} is marked Selected! Would you like to create a Final Placement Record now?`)&&a("placements")}u()})})}}n.innerHTML=`
+    `).join(""),n.querySelectorAll(".update-status-btn").forEach(s=>{s.addEventListener("click",b=>{b.preventDefault();const g=parseInt(s.getAttribute("data-id")),f=s.getAttribute("data-status");if(p.updateRow("APPLICATION",g,{status:f}),f==="Selected"&&t){const x=p.getApplicationsDetailed().find(w=>w.application_id===g);confirm(`Student ${x.student_name} is marked Selected! Would you like to create a Final Placement Record now?`)&&a("placements")}u()})})}}n.innerHTML=`
     <div class="fade-in">
       <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
@@ -970,7 +970,7 @@ import{initializeApp as M}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
     `,l.innerHTML=`
       <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
       <button type="button" class="btn btn-primary rounded-pill px-4" id="save-new-interview">Confirm Schedule</button>
-    `;const e=new bootstrap.Modal(document.getElementById("ctpmsModal"));e.show(),document.getElementById("save-new-interview").onclick=()=>{const s=parseInt(document.getElementById("int-app-id").value),b=parseInt(document.getElementById("int-round-num").value),f=document.getElementById("int-round-type").value,g=document.getElementById("int-date").value.replace("T"," "),x=document.getElementById("int-venue").value;!s||!x||(p.insertRow("INTERVIEW",{application_id:s,round_number:b,round_type:f,scheduled_date:g,venue:x,result:"Pending"}),e.hide(),o())}}function c(h){const v=p.getTable("INTERVIEW").find(b=>b.interview_id===h);if(!v)return;const m=document.getElementById("ctpmsModalTitle"),l=document.getElementById("ctpmsModalBody"),e=document.getElementById("ctpmsModalFooter");m.textContent=`Update Round ${v.round_number} Result`,l.innerHTML=`
+    `;const e=new bootstrap.Modal(document.getElementById("ctpmsModal"));e.show(),document.getElementById("save-new-interview").onclick=()=>{const s=parseInt(document.getElementById("int-app-id").value),b=parseInt(document.getElementById("int-round-num").value),g=document.getElementById("int-round-type").value,f=document.getElementById("int-date").value.replace("T"," "),x=document.getElementById("int-venue").value;!s||!x||(p.insertRow("INTERVIEW",{application_id:s,round_number:b,round_type:g,scheduled_date:f,venue:x,result:"Pending"}),e.hide(),o())}}function c(h){const v=p.getTable("INTERVIEW").find(b=>b.interview_id===h);if(!v)return;const m=document.getElementById("ctpmsModalTitle"),l=document.getElementById("ctpmsModalBody"),e=document.getElementById("ctpmsModalFooter");m.textContent=`Update Round ${v.round_number} Result`,l.innerHTML=`
       <form id="update-result-form">
         <div class="mb-3">
           <label class="form-label text-xs fw-bold text-uppercase text-muted">Evaluation Result</label>
@@ -1077,7 +1077,7 @@ Issued by TRCAC Placement Cell`)})}),n.querySelectorAll(".manage-attendance-btn"
     `,l.innerHTML=`
       <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
       <button type="button" class="btn btn-primary rounded-pill px-4" id="save-new-training">Publish Training</button>
-    `;const e=new bootstrap.Modal(document.getElementById("ctpmsModal"));e.show(),document.getElementById("save-new-training").onclick=()=>{const s=document.getElementById("tr-title").value,b=document.getElementById("tr-trainer").value,f=document.getElementById("tr-start").value,g=document.getElementById("tr-end").value,x=document.getElementById("tr-desc").value;!s||!b||(p.insertRow("TRAINING",{title:s,trainer_name:b,start_date:f,end_date:g,description:x,attendance:[],completed_students:[]}),e.hide(),o())}}function c(v){const m=p.getTable("TRAINING").find(g=>g.training_id===v),l=p.getStudentFullProfiles();if(!m)return;const e=document.getElementById("ctpmsModalTitle"),s=document.getElementById("ctpmsModalBody"),b=document.getElementById("ctpmsModalFooter");e.textContent=`Attendance List: ${m.title}`,s.innerHTML=`
+    `;const e=new bootstrap.Modal(document.getElementById("ctpmsModal"));e.show(),document.getElementById("save-new-training").onclick=()=>{const s=document.getElementById("tr-title").value,b=document.getElementById("tr-trainer").value,g=document.getElementById("tr-start").value,f=document.getElementById("tr-end").value,x=document.getElementById("tr-desc").value;!s||!b||(p.insertRow("TRAINING",{title:s,trainer_name:b,start_date:g,end_date:f,description:x,attendance:[],completed_students:[]}),e.hide(),o())}}function c(v){const m=p.getTable("TRAINING").find(f=>f.training_id===v),l=p.getStudentFullProfiles();if(!m)return;const e=document.getElementById("ctpmsModalTitle"),s=document.getElementById("ctpmsModalBody"),b=document.getElementById("ctpmsModalFooter");e.textContent=`Attendance List: ${m.title}`,s.innerHTML=`
       <div class="table-responsive">
         <table class="table table-sm table-hover align-middle">
           <thead>
@@ -1088,12 +1088,12 @@ Issued by TRCAC Placement Cell`)})}),n.querySelectorAll(".manage-attendance-btn"
             </tr>
           </thead>
           <tbody>
-            ${l.map(g=>{const x=(m.attendance||[]).includes(g.student_id);return`
+            ${l.map(f=>{const x=(m.attendance||[]).includes(f.student_id);return`
                 <tr>
-                  <td>${g.name}</td>
-                  <td>${g.roll_number}</td>
+                  <td>${f.name}</td>
+                  <td>${f.roll_number}</td>
                   <td>
-                    <input type="checkbox" class="form-check-input att-check" data-sid="${g.student_id}" ${x?"checked":""}>
+                    <input type="checkbox" class="form-check-input att-check" data-sid="${f.student_id}" ${x?"checked":""}>
                   </td>
                 </tr>
               `}).join("")}
@@ -1103,7 +1103,7 @@ Issued by TRCAC Placement Cell`)})}),n.querySelectorAll(".manage-attendance-btn"
     `,b.innerHTML=`
       <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Close</button>
       <button type="button" class="btn btn-primary rounded-pill px-4" id="save-attendance">Save Attendance</button>
-    `;const f=new bootstrap.Modal(document.getElementById("ctpmsModal"));f.show(),document.getElementById("save-attendance").onclick=()=>{const g=document.querySelectorAll(".att-check"),x=[];g.forEach(w=>{w.checked&&x.push(parseInt(w.getAttribute("data-sid")))}),p.updateRow("TRAINING",v,{attendance:x}),f.hide(),o()}}function r(v){const m=p.getTable("TRAINING").find(g=>g.training_id===v),l=p.getStudentFullProfiles().filter(g=>(m.attendance||[]).includes(g.student_id));if(!m)return;const e=document.getElementById("ctpmsModalTitle"),s=document.getElementById("ctpmsModalBody"),b=document.getElementById("ctpmsModalFooter");e.textContent=`Issue Completion Certificates: ${m.title}`,s.innerHTML=`
+    `;const g=new bootstrap.Modal(document.getElementById("ctpmsModal"));g.show(),document.getElementById("save-attendance").onclick=()=>{const f=document.querySelectorAll(".att-check"),x=[];f.forEach(w=>{w.checked&&x.push(parseInt(w.getAttribute("data-sid")))}),p.updateRow("TRAINING",v,{attendance:x}),g.hide(),o()}}function r(v){const m=p.getTable("TRAINING").find(f=>f.training_id===v),l=p.getStudentFullProfiles().filter(f=>(m.attendance||[]).includes(f.student_id));if(!m)return;const e=document.getElementById("ctpmsModalTitle"),s=document.getElementById("ctpmsModalBody"),b=document.getElementById("ctpmsModalFooter");e.textContent=`Issue Completion Certificates: ${m.title}`,s.innerHTML=`
       <p class="text-muted text-xs">Select enrolled students who completed all attendance requirements to issue digital certificates:</p>
       <div class="table-responsive">
         <table class="table table-sm table-hover align-middle">
@@ -1115,12 +1115,12 @@ Issued by TRCAC Placement Cell`)})}),n.querySelectorAll(".manage-attendance-btn"
             </tr>
           </thead>
           <tbody>
-            ${l.length===0?'<tr><td colspan="3" class="text-center py-3 text-muted">No enrolled students in this training yet.</td></tr>':l.map(g=>{const x=(m.completed_students||[]).includes(g.student_id);return`
+            ${l.length===0?'<tr><td colspan="3" class="text-center py-3 text-muted">No enrolled students in this training yet.</td></tr>':l.map(f=>{const x=(m.completed_students||[]).includes(f.student_id);return`
                   <tr>
-                    <td>${g.name}</td>
-                    <td>${g.roll_number}</td>
+                    <td>${f.name}</td>
+                    <td>${f.roll_number}</td>
                     <td>
-                      <input type="checkbox" class="form-check-input cert-check" data-sid="${g.student_id}" ${x?"checked":""}>
+                      <input type="checkbox" class="form-check-input cert-check" data-sid="${f.student_id}" ${x?"checked":""}>
                     </td>
                   </tr>
                 `}).join("")}
@@ -1130,7 +1130,7 @@ Issued by TRCAC Placement Cell`)})}),n.querySelectorAll(".manage-attendance-btn"
     `,b.innerHTML=`
       <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Close</button>
       <button type="button" class="btn btn-success rounded-pill px-4" id="save-certs">Issue Certificates</button>
-    `;const f=new bootstrap.Modal(document.getElementById("ctpmsModal"));f.show(),document.getElementById("save-certs").onclick=()=>{const g=document.querySelectorAll(".cert-check"),x=[];g.forEach(w=>{w.checked&&x.push(parseInt(w.getAttribute("data-sid")))}),p.updateRow("TRAINING",v,{completed_students:x}),f.hide(),o()}}}function z(n){var o;const a=y.getCurrentUser(),d=a.role_id===1||a.role_id===2;function i(){const u=p.getTable("PLACEMENT_RECORD"),c=p.getStudentFullProfiles(),r=p.getTable("COMPANY"),h=p.getTable("JOB_POSTING"),v=u.map(l=>{const e=c.find(f=>f.student_id===l.student_id)||{},s=r.find(f=>f.company_id===l.company_id)||{},b=h.find(f=>f.job_id===l.job_id)||{};return{...l,student_name:e.name||"Unknown Student",roll_number:e.roll_number||"",branch:e.branch||"",company_name:s.company_name||"N/A",job_title:b.job_title||"N/A"}}),m=n.querySelector("#placements-tbody");if(m){if(v.length===0){m.innerHTML='<tr><td colspan="7" class="text-center py-4 text-muted">No placement records recorded yet.</td></tr>';return}m.innerHTML=v.map(l=>`
+    `;const g=new bootstrap.Modal(document.getElementById("ctpmsModal"));g.show(),document.getElementById("save-certs").onclick=()=>{const f=document.querySelectorAll(".cert-check"),x=[];f.forEach(w=>{w.checked&&x.push(parseInt(w.getAttribute("data-sid")))}),p.updateRow("TRAINING",v,{completed_students:x}),g.hide(),o()}}}function z(n){var o;const a=y.getCurrentUser(),d=a.role_id===1||a.role_id===2;function i(){const u=p.getTable("PLACEMENT_RECORD"),c=p.getStudentFullProfiles(),r=p.getTable("COMPANY"),h=p.getTable("JOB_POSTING"),v=u.map(l=>{const e=c.find(g=>g.student_id===l.student_id)||{},s=r.find(g=>g.company_id===l.company_id)||{},b=h.find(g=>g.job_id===l.job_id)||{};return{...l,student_name:e.name||"Unknown Student",roll_number:e.roll_number||"",branch:e.branch||"",company_name:s.company_name||"N/A",job_title:b.job_title||"N/A"}}),m=n.querySelector("#placements-tbody");if(m){if(v.length===0){m.innerHTML='<tr><td colspan="7" class="text-center py-4 text-muted">No placement records recorded yet.</td></tr>';return}m.innerHTML=v.map(l=>`
       <tr>
         <td>
           <div class="fw-bold text-dark">${l.student_name}</div>
@@ -1219,12 +1219,12 @@ Issued by TRCAC Placement Cell`)})}),n.querySelectorAll(".manage-attendance-btn"
     `,m.innerHTML=`
       <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
       <button type="button" class="btn btn-success rounded-pill px-4" id="save-placement-record">Confirm Placement Offer</button>
-    `;const l=new bootstrap.Modal(document.getElementById("ctpmsModal"));l.show(),document.getElementById("save-placement-record").onclick=()=>{const e=parseInt(document.getElementById("pl-student-id").value),s=parseInt(document.getElementById("pl-company-id").value),b=parseInt(document.getElementById("pl-job-id").value),f=parseFloat(document.getElementById("pl-ctc").value),g=document.getElementById("pl-offer-date").value,x=document.getElementById("pl-joining-date").value;!e||!s||!b||(p.insertRow("PLACEMENT_RECORD",{student_id:e,company_id:s,job_id:b,ctc_offered:f,offer_date:g,joining_date:x}),p.updateRow("STUDENT",e,{placement_status:"Placed"}),l.hide(),i())}}}function Z(n){const a=y.getCurrentUser();if(!(a.role_id===1||a.role_id===2)){n.innerHTML=`
+    `;const l=new bootstrap.Modal(document.getElementById("ctpmsModal"));l.show(),document.getElementById("save-placement-record").onclick=()=>{const e=parseInt(document.getElementById("pl-student-id").value),s=parseInt(document.getElementById("pl-company-id").value),b=parseInt(document.getElementById("pl-job-id").value),g=parseFloat(document.getElementById("pl-ctc").value),f=document.getElementById("pl-offer-date").value,x=document.getElementById("pl-joining-date").value;!e||!s||!b||(p.insertRow("PLACEMENT_RECORD",{student_id:e,company_id:s,job_id:b,ctc_offered:g,offer_date:f,joining_date:x}),p.updateRow("STUDENT",e,{placement_status:"Placed"}),l.hide(),i())}}}function Z(n){const a=y.getCurrentUser();if(!(a.role_id===1||a.role_id===2)){n.innerHTML=`
       <div class="alert alert-danger rounded-3 p-4">
         <h5 class="fw-bold"><i class="bi bi-shield-lock-fill me-2"></i>Access Restricted</h5>
         <p class="mb-0">Placement analytics and CSV exports are restricted to TPO Officers and Administrators.</p>
       </div>
-    `;return}const i=p.getStudentFullProfiles(),t=p.getTable("PLACEMENT_RECORD"),o=p.getTable("COMPANY"),u=i.length,c=i.filter(s=>s.placement_status==="Placed"),r=i.filter(s=>s.placement_status==="Unplaced"),h=t.reduce((s,b)=>b.ctc_offered>s?b.ctc_offered:s,0),v=t.length>0?(t.reduce((s,b)=>s+b.ctc_offered,0)/t.length).toFixed(2):"0.00",l=["B.Sc. CS","B.Sc. IT","B.Sc. Data Science"].map(s=>{const b=i.filter(x=>x.branch===s),f=b.filter(x=>x.placement_status==="Placed"),g=b.length>0?(f.length/b.length*100).toFixed(1):"0.0";return{branch:s,total:b.length,placed:f.length,unplaced:b.length-f.length,rate:g}}),e=o.map(s=>{const b=t.filter(g=>g.company_id===s.company_id),f=b.reduce((g,x)=>x.ctc_offered>g?x.ctc_offered:g,0);return{company:s.company_name,hires:b.length,ctc:f>0?`${f.toFixed(2)} LPA`:"N/A"}});n.innerHTML=`
+    `;return}const i=p.getStudentFullProfiles(),t=p.getTable("PLACEMENT_RECORD"),o=p.getTable("COMPANY"),u=i.length,c=i.filter(s=>s.placement_status==="Placed"),r=i.filter(s=>s.placement_status==="Unplaced"),h=t.reduce((s,b)=>b.ctc_offered>s?b.ctc_offered:s,0),v=t.length>0?(t.reduce((s,b)=>s+b.ctc_offered,0)/t.length).toFixed(2):"0.00",l=["B.Sc. CS","B.Sc. IT","B.Sc. Data Science"].map(s=>{const b=i.filter(x=>x.branch===s),g=b.filter(x=>x.placement_status==="Placed"),f=b.length>0?(g.length/b.length*100).toFixed(1):"0.0";return{branch:s,total:b.length,placed:g.length,unplaced:b.length-g.length,rate:f}}),e=o.map(s=>{const b=t.filter(f=>f.company_id===s.company_id),g=b.reduce((f,x)=>x.ctc_offered>f?x.ctc_offered:f,0);return{company:s.company_name,hires:b.length,ctc:g>0?`${g.toFixed(2)} LPA`:"N/A"}});n.innerHTML=`
     <div class="fade-in">
       <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
@@ -1340,7 +1340,7 @@ Issued by TRCAC Placement Cell`)})}),n.querySelectorAll(".manage-attendance-btn"
         </div>
       </div>
     </div>
-  `,n.querySelector("#export-csv-btn").addEventListener("click",()=>{const s=i.map(b=>({"Roll Number":b.roll_number,"Student Name":b.name,"Degree Branch":b.branch,"CGPA Score":b.cgpa,"Email Contact":b.email,Skills:b.skills,"Placement Status":b.placement_status,"Company Placed":b.placement_details?b.placement_details.company_name:"N/A","CTC Offered (LPA)":b.placement_details?b.placement_details.ctc_offered:"N/A"}));if(window.Papa){const b=window.Papa.unparse(s),f=new Blob([b],{type:"text/csv;charset=utf-8;"}),g=document.createElement("a");g.href=URL.createObjectURL(f),g.setAttribute("download",`TRCAC_Placement_Report_${new Date().toISOString().substring(0,10)}.csv`),document.body.appendChild(g),g.click(),document.body.removeChild(g)}else alert("CSV export engine ready. Triggered export download.")})}function X(n){const a=y.getCurrentUser(),d=p.getTable("USER").find(o=>o.user_id===a.user_id)||{};n.innerHTML=`
+  `,n.querySelector("#export-csv-btn").addEventListener("click",()=>{const s=i.map(b=>({"Roll Number":b.roll_number,"Student Name":b.name,"Degree Branch":b.branch,"CGPA Score":b.cgpa,"Email Contact":b.email,Skills:b.skills,"Placement Status":b.placement_status,"Company Placed":b.placement_details?b.placement_details.company_name:"N/A","CTC Offered (LPA)":b.placement_details?b.placement_details.ctc_offered:"N/A"}));if(window.Papa){const b=window.Papa.unparse(s),g=new Blob([b],{type:"text/csv;charset=utf-8;"}),f=document.createElement("a");f.href=URL.createObjectURL(g),f.setAttribute("download",`TRCAC_Placement_Report_${new Date().toISOString().substring(0,10)}.csv`),document.body.appendChild(f),f.click(),document.body.removeChild(f)}else alert("CSV export engine ready. Triggered export download.")})}function X(n){const a=y.getCurrentUser(),d=p.getTable("USER").find(o=>o.user_id===a.user_id)||{};n.innerHTML=`
     <div class="fade-in max-w-700">
       <div class="mb-4">
         <h4 class="fw-bold text-navy mb-1">Profile & Account Settings</h4>
