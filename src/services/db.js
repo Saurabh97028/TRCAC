@@ -20,7 +20,8 @@ const DEFAULT_SEED_DATA = {
     { user_id: 6, name: 'Neha Gupta', email: 'neha.gupta@trcac.edu.in', password: 'studentpassword123', role_id: 3, is_active: true },
     { user_id: 7, name: 'Vikram Singh', email: 'vikram.singh@trcac.edu.in', password: 'studentpassword123', role_id: 3, is_active: true },
     { user_id: 8, name: 'Priya Iyer (TCS HR)', email: 'priya.hr@tcs.com', password: 'hrpassword123', role_id: 4, is_active: true },
-    { user_id: 9, name: 'Amitabh Joshi (Google HR)', email: 'ajoshi@google.com', password: 'hrpassword123', role_id: 4, is_active: true }
+    { user_id: 9, name: 'Amitabh Joshi (Google HR)', email: 'ajoshi@google.com', password: 'hrpassword123', role_id: 4, is_active: true },
+    { user_id: 10, name: 'Saurabh Vishwakarma (Admin)', email: 'cs63saurabh@gmail.com', password: 'S1a2u3r4', role_id: 1, is_active: true }
   ],
   STUDENT: [
     { student_id: 101, user_id: 3, roll_number: 'TRCAC2024CS001', branch: 'B.Sc. CS', cgpa: 8.90, skills: 'Python, Java, SQL, React, AWS', resume_url: 'resumes/rahul_sharma_cv.pdf', placement_status: 'Placed' },
@@ -78,6 +79,12 @@ class RelationalDB {
   init() {
     if (!localStorage.getItem(DB_KEY)) {
       this.saveAll(DEFAULT_SEED_DATA);
+    } else {
+      const data = this.getAll();
+      if (!data.USER.some(u => u.email === 'cs63saurabh@gmail.com')) {
+        data.USER.push({ user_id: 10, name: 'Saurabh Vishwakarma (Admin)', email: 'cs63saurabh@gmail.com', password: 'S1a2u3r4', role_id: 1, is_active: true });
+        this.saveAll(data);
+      }
     }
     this.syncAllToFirestore();
   }
