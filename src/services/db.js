@@ -79,6 +79,20 @@ class RelationalDB {
     if (!localStorage.getItem(DB_KEY)) {
       this.saveAll(DEFAULT_SEED_DATA);
     }
+    this.syncAllToFirestore();
+  }
+
+  async syncAllToFirestore() {
+    try {
+      const data = this.getAll();
+      for (const [tableName, items] of Object.entries(data)) {
+        if (Array.isArray(items) && items.length > 0) {
+          await syncCollectionToFirestore(tableName, items);
+        }
+      }
+    } catch (e) {
+      console.warn('Initial Firestore sync error:', e);
+    }
   }
 
   getAll() {
