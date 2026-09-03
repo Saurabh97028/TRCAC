@@ -202,7 +202,7 @@ class App {
               const u = users.find(x => x.user_id === l.user_id) || {};
               return `
                 <tr>
-                  <td>#${l.log_id}</td>
+                  <td>#${l.security_log_id || l.log_id}</td>
                   <td class="fw-bold">${u.name || 'User #' + l.user_id}</td>
                   <td class="text-muted text-xs">${l.entry_time}</td>
                   <td class="text-muted text-xs">${l.exit_time || '<span class="badge bg-success-subtle text-success">Active Session</span>'}</td>

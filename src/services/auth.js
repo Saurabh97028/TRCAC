@@ -55,7 +55,8 @@ class AuthService {
       status_event: 'Success Login'
     });
 
-    sessionUser.current_log_id = logEntry.log_id;
+    const logId = logEntry.security_log_id || logEntry.log_id || logEntry.id;
+    sessionUser.current_log_id = logId;
     this.currentUser = sessionUser;
     sessionStorage.setItem(SESSION_KEY, JSON.stringify(sessionUser));
 
@@ -63,12 +64,24 @@ class AuthService {
   }
 
   logout() {
-    if (this.currentUser && this.currentUser.current_log_id) {
+    if (this.currentUser) {
       const nowStr = new Date().toISOString().replace('T', ' ').substring(0, 19);
-      db.updateRow('SECURITY_LOG', this.currentUser.current_log_id, {
-        exit_time: nowStr,
-        status_event: 'Logout'
-      });
+      let logId = this.currentUser.current_log_id;
+
+      if (!logId) {
+        const logs = db.getTable('SECURITY_LOG');
+        const openLog = [...logs].reverse().find(l => l.user_id === this.currentUser.user_id && !l.exit_time);
+        if (openLog) {
+          logId = openLog.security_log_id || openLog.log_id;
+        }
+      }
+
+      if (logId) {
+        db.updateRow('SECURITY_LOG', logId, {
+          exit_time: nowStr,
+          status_event: 'Logout'
+        });
+      }
     }
 
     this.currentUser = null;
