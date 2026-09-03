@@ -193,3 +193,23 @@ h1, h2, h3, h4, h5, h6, .brand-title {
   from { opacity: 0; transform: translateY(6px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* Mobile Responsiveness & Touch Adjustments */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    height: calc(100vh - 64px);
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
+    background-color: #ffffff;
+  }
+  .sidebar.collapsed {
+    transform: translateX(-100%);
+    width: 260px !important;
+    min-width: 260px !important;
+  }
+  .table-responsive {
+    -webkit-overflow-scrolling: touch;
+  }
+}

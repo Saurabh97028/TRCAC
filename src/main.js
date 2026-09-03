@@ -132,6 +132,11 @@ class App {
     // Render Page
     this.mainViewport.scrollTop = 0;
     navItem.render(this.mainViewport, (targetPage) => this.navigateTo(targetPage));
+
+    // Auto-collapse sidebar on mobile screens after selecting a menu item
+    if (window.innerWidth <= 768) {
+      this.sidebar.classList.add('collapsed');
+    }
   }
 
   setupEventListeners() {
