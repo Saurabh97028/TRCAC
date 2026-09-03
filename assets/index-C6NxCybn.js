@@ -1,4 +1,4 @@
-import{initializeApp as L}from"https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";import{getFirestore as M,doc as R,setDoc as k}from"https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";import{getAuth as O}from"https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";(function(){const a=document.createElement("link").relList;if(a&&a.supports&&a.supports("modulepreload"))return;for(const t of document.querySelectorAll('link[rel="modulepreload"]'))i(t);new MutationObserver(t=>{for(const o of t)if(o.type==="childList")for(const u of o.addedNodes)u.tagName==="LINK"&&u.rel==="modulepreload"&&i(u)}).observe(document,{childList:!0,subtree:!0});function d(t){const o={};return t.integrity&&(o.integrity=t.integrity),t.referrerPolicy&&(o.referrerPolicy=t.referrerPolicy),t.crossOrigin==="use-credentials"?o.credentials="include":t.crossOrigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function i(t){if(t.ep)return;t.ep=!0;const o=d(t);fetch(t.href,o)}})();const D={apiKey:"AIzaSyAAFXLtkLf55eMIeeTGHpu7KVu-WE9-Zeg",authDomain:"tpms-6e8d8.firebaseapp.com",projectId:"tpms-6e8d8",storageBucket:"tpms-6e8d8.firebasestorage.app",messagingSenderId:"480678660528",appId:"1:480678660528:web:c6e35266d4eb5159d6ee75",measurementId:"G-Z54H1Y13Q0"};let T=null,P=null,N=null,j=!1;try{T=L(D),P=M(T),N=O(T),j=!0,console.log("🔥 Live connected to user Firebase project: TPMS (tpms-6e8d8)!")}catch(n){console.warn("Firebase initialization note:",n)}async function E(n,a){if(P)try{for(const d of a){const i=`${n.toLowerCase()}_id`,t=d[i]?String(d[i]):String(Date.now()),o=R(P,n,t);await k(o,d,{merge:!0})}console.log(`Synced ${a.length} records to Firestore collection: ${n}`)}catch(d){console.warn(`Firestore sync note for ${n}:`,d)}}const I="CTPMS_RELATIONAL_DATABASE_V1",S={ROLE:[{role_id:1,role_name:"Administrator"},{role_id:2,role_name:"TPO"},{role_id:3,role_name:"Student"},{role_id:4,role_name:"Company HR"}],USER:[{user_id:1,name:"Admin Administrator",email:"admin@trcac.edu.in",password:"adminpassword123",role_id:1,is_active:!0},{user_id:2,name:"Prof. Saurabh Vishwakarma (TPO)",email:"tpo@trcac.edu.in",password:"tpopassword123",role_id:2,is_active:!0},{user_id:3,name:"Rahul Sharma",email:"rahul.sharma@trcac.edu.in",password:"studentpassword123",role_id:3,is_active:!0},{user_id:4,name:"Ananya Patel",email:"ananya.patel@trcac.edu.in",password:"studentpassword123",role_id:3,is_active:!0},{user_id:5,name:"Siddharth Verma",email:"siddharth.v@trcac.edu.in",password:"studentpassword123",role_id:3,is_active:!0},{user_id:6,name:"Neha Gupta",email:"neha.gupta@trcac.edu.in",password:"studentpassword123",role_id:3,is_active:!0},{user_id:7,name:"Vikram Singh",email:"vikram.singh@trcac.edu.in",password:"studentpassword123",role_id:3,is_active:!0},{user_id:8,name:"Priya Iyer (TCS HR)",email:"priya.hr@tcs.com",password:"hrpassword123",role_id:4,is_active:!0},{user_id:9,name:"Amitabh Joshi (Google HR)",email:"ajoshi@google.com",password:"hrpassword123",role_id:4,is_active:!0},{user_id:10,name:"Saurabh Vishwakarma (Admin)",email:"cs63saurabh@gmail.com",password:"S1a2u3r4",role_id:1,is_active:!0}],STUDENT:[{student_id:101,user_id:3,roll_number:"TRCAC2024CS001",branch:"B.Sc. CS",cgpa:8.9,skills:"Python, Java, SQL, React, AWS",resume_url:"resumes/rahul_sharma_cv.pdf",placement_status:"Placed"},{student_id:102,user_id:4,roll_number:"TRCAC2024CS002",branch:"B.Sc. CS",cgpa:9.45,skills:"C++, Data Structures, System Design, Node.js",resume_url:"resumes/ananya_patel_cv.pdf",placement_status:"Unplaced"},{student_id:103,user_id:5,roll_number:"TRCAC2024IT015",branch:"B.Sc. IT",cgpa:7.8,skills:"HTML, CSS, JavaScript, PHP, MySQL",resume_url:"resumes/siddharth_v_cv.pdf",placement_status:"Unplaced"},{student_id:104,user_id:6,roll_number:"TRCAC2024DS008",branch:"B.Sc. Data Science",cgpa:8.65,skills:"Python, R, PowerBI, Machine Learning, SQL",resume_url:"resumes/neha_gupta_cv.pdf",placement_status:"Unplaced"},{student_id:105,user_id:7,roll_number:"TRCAC2024CS045",branch:"B.Sc. CS",cgpa:6.75,skills:"HTML, Java, SQL Basics",resume_url:"resumes/vikram_s_cv.pdf",placement_status:"Unplaced"}],COMPANY:[{company_id:201,company_name:"Tata Consultancy Services (TCS)",sector:"IT Services",location:"Mumbai, MH",contact_email:"priya.hr@tcs.com",website:"https://www.tcs.com"},{company_id:202,company_name:"Infosys Limited",sector:"IT & Cloud Services",location:"Bengaluru / Mumbai",contact_email:"campus@infosys.com",website:"https://www.infosys.com"},{company_id:203,company_name:"Google India",sector:"Software & Technology",location:"Hyderabad / Bengaluru",contact_email:"ajoshi@google.com",website:"https://careers.google.com"},{company_id:204,company_name:"Deloitte India",sector:"Consulting & Financial Advisory",location:"Mumbai, MH",contact_email:"hr@deloitte.com",website:"https://www.deloitte.com"}],JOB_POSTING:[{job_id:301,company_id:201,job_title:"Software Engineer - TCS Ninja / Digital",description:"Development and maintenance of enterprise cloud applications. Requires strong problem solving and programming skills.",min_cgpa:7,eligible_branches:"B.Sc. CS, B.Sc. IT, B.Sc. Data Science",ctc:7.5,deadline:"2026-09-15",status:"Open"},{job_id:302,company_id:203,job_title:"Associate Software Engineer",description:"Build scalable software services powering global Google Infrastructure. High algorithmic proficiency required.",min_cgpa:8.5,eligible_branches:"B.Sc. CS, B.Sc. IT",ctc:18,deadline:"2026-09-30",status:"Open"},{job_id:303,company_id:204,job_title:"Risk & Analytics Associate",description:"Perform technical risk modeling, data analytics, and audit compliance for enterprise clients.",min_cgpa:7.5,eligible_branches:"B.Sc. CS, B.Sc. IT, B.Sc. Data Science",ctc:8.75,deadline:"2026-08-30",status:"Open"},{job_id:304,company_id:202,job_title:"Specialist Programmer",description:"Design enterprise software architectures and full-stack solutions.",min_cgpa:8,eligible_branches:"B.Sc. CS, B.Sc. IT",ctc:9.5,deadline:"2026-08-10",status:"Closed"}],APPLICATION:[{application_id:401,student_id:101,job_id:301,applied_date:"2026-08-01 10:30:00",status:"Selected"},{application_id:402,student_id:102,job_id:301,applied_date:"2026-08-02 11:15:00",status:"Shortlisted"},{application_id:403,student_id:102,job_id:302,applied_date:"2026-08-03 14:20:00",status:"Shortlisted"},{application_id:404,student_id:103,job_id:301,applied_date:"2026-08-02 16:45:00",status:"Applied"},{application_id:405,student_id:104,job_id:303,applied_date:"2026-08-04 09:00:00",status:"Shortlisted"}],INTERVIEW:[{interview_id:501,application_id:401,round_number:1,round_type:"Aptitude & Coding Test",scheduled_date:"2026-08-04 10:00:00",venue:"Online Assessment Portal",result:"Pass"},{interview_id:502,application_id:401,round_number:2,round_type:"Technical Interview",scheduled_date:"2026-08-05 14:00:00",venue:"TRCAC Seminar Hall 1",result:"Pass"},{interview_id:503,application_id:401,round_number:3,round_type:"HR Interview",scheduled_date:"2026-08-06 11:30:00",venue:"TPO Conference Room",result:"Pass"},{interview_id:504,application_id:402,round_number:1,round_type:"Aptitude & Coding Test",scheduled_date:"2026-08-10 10:00:00",venue:"TRCAC Computer Lab 3",result:"Pending"},{interview_id:505,application_id:403,round_number:1,round_type:"Technical Screening",scheduled_date:"2026-08-12 15:00:00",venue:"Google Meet (Virtual)",result:"Pending"},{interview_id:506,application_id:405,round_number:1,round_type:"Data Case Study",scheduled_date:"2026-08-11 11:00:00",venue:"TRCAC Lab 2",result:"Pending"}],TRAINING:[{training_id:601,title:"Full-Stack Web & Cloud Boot Camp",trainer_name:"TechSkill Academy",start_date:"2026-07-01",end_date:"2026-07-25",description:"Comprehensive training on React, Node.js, REST APIs, Docker, and AWS deployment.",attendance:[101,102,103],completed_students:[101,102]},{training_id:602,title:"Corporate Communication & Mock HR Interviews",trainer_name:"Prof. Anjali Mehta",start_date:"2026-08-01",end_date:"2026-08-15",description:"Interview body language, group discussion tactics, resume polishing, and aptitude shortcuts.",attendance:[101,102,103,104,105],completed_students:[101]}],PLACEMENT_RECORD:[{placement_id:701,student_id:101,company_id:201,job_id:301,ctc_offered:7.5,offer_date:"2026-08-07",joining_date:"2027-06-15"}],SECURITY_LOG:[{log_id:801,user_id:2,entry_time:"2026-08-08 09:00:00",exit_time:"2026-08-08 17:30:00",status_event:"Success Login"},{log_id:802,user_id:3,entry_time:"2026-08-08 11:14:00",exit_time:"2026-08-08 12:00:00",status_event:"Success Login"},{log_id:803,user_id:1,entry_time:"2026-08-08 14:22:00",exit_time:null,status_event:"Success Login"}]};class q{constructor(){this.init()}init(){if(!localStorage.getItem(I))this.saveAll(S);else{const a=this.getAll();a.USER.some(d=>d.email==="cs63saurabh@gmail.com")||(a.USER.push({user_id:10,name:"Saurabh Vishwakarma (Admin)",email:"cs63saurabh@gmail.com",password:"S1a2u3r4",role_id:1,is_active:!0}),this.saveAll(a))}this.syncAllToFirestore()}async syncAllToFirestore(){try{const a=this.getAll();for(const[d,i]of Object.entries(a))Array.isArray(i)&&i.length>0&&await E(d,i)}catch(a){console.warn("Initial Firestore sync error:",a)}}getAll(){try{const a=localStorage.getItem(I);return a?JSON.parse(a):S}catch(a){return console.error("Error loading DB from LocalStorage",a),S}}saveAll(a){try{localStorage.setItem(I,JSON.stringify(a))}catch(d){console.error("Error saving DB to LocalStorage",d)}}resetToDefault(){return this.saveAll(S),S}getTable(a){return this.getAll()[a]||[]}insertRow(a,d){const i=this.getAll();i[a]||(i[a]=[]);const t=`${a.toLowerCase()}_id`;if(!d[t]){const o=i[a].reduce((u,c)=>c[t]>u?c[t]:u,100);d[t]=o+1}return i[a].push(d),this.saveAll(i),E(a,[d]),d}updateRow(a,d,i){const t=this.getAll(),o=`${a.toLowerCase()}_id`,u=t[a]||[],c=u.findIndex(r=>r[o]===d);return c!==-1?(u[c]={...u[c],...i},t[a]=u,this.saveAll(t),E(a,[u[c]]),u[c]):null}deleteRow(a,d){const i=this.getAll(),t=`${a.toLowerCase()}_id`;return i[a]?(i[a]=i[a].filter(o=>o[t]!==d),this.saveAll(i),!0):!1}getStudentFullProfiles(){const a=this.getAll();return a.STUDENT.map(d=>{const i=a.USER.find(u=>u.user_id===d.user_id)||{},t=a.PLACEMENT_RECORD.find(u=>u.student_id===d.student_id);let o=null;return t&&(o=a.COMPANY.find(u=>u.company_id===t.company_id)),{...d,name:i.name||"Unknown",email:i.email||"",is_active:i.is_active,placement_details:t?{...t,company_name:o==null?void 0:o.company_name}:null}})}getJobPostingsDetailed(){const a=this.getAll();return a.JOB_POSTING.map(d=>{const i=a.COMPANY.find(o=>o.company_id===d.company_id)||{},t=a.APPLICATION.filter(o=>o.job_id===d.job_id);return{...d,company_name:i.company_name||"N/A",sector:i.sector||"N/A",location:i.location||"N/A",application_count:t.length}})}getApplicationsDetailed(){const a=this.getAll();return a.APPLICATION.map(d=>{const i=a.STUDENT.find(r=>r.student_id===d.student_id)||{},t=a.USER.find(r=>r.user_id===i.user_id)||{},o=a.JOB_POSTING.find(r=>r.job_id===d.job_id)||{},u=a.COMPANY.find(r=>r.company_id===o.company_id)||{},c=a.INTERVIEW.filter(r=>r.application_id===d.application_id);return{...d,student_name:t.name||"Unknown Student",roll_number:i.roll_number||"",branch:i.branch||"",cgpa:i.cgpa||0,job_title:o.job_title||"N/A",company_name:u.company_name||"N/A",ctc:o.ctc||0,interviews:c}})}}const p=new q,A="CTPMS_ACTIVE_SESSION";class U{constructor(){this.currentUser=this.loadSession()}loadSession(){try{const a=sessionStorage.getItem(A)||localStorage.getItem(A);return a?JSON.parse(a):null}catch{return null}}login(a,d){const t=p.getTable("USER").find(m=>m.email.toLowerCase()===a.toLowerCase()&&m.password===d);if(!t)return{success:!1,message:"Invalid email credentials or password."};if(!t.is_active)return{success:!1,message:"Account is deactivated. Please contact Administrator."};const u=p.getTable("ROLE").find(m=>m.role_id===t.role_id)||{};let c=null;t.role_id===3&&(c=p.getTable("STUDENT").find(m=>m.user_id===t.user_id)||null);const r={user_id:t.user_id,name:t.name,email:t.email,role_id:t.role_id,role_name:u.role_name||"User",student_id:c?c.student_id:null,login_time:new Date().toISOString()},h=new Date().toISOString().replace("T"," ").substring(0,19),v=p.insertRow("SECURITY_LOG",{user_id:t.user_id,entry_time:h,exit_time:null,status_event:"Success Login"});return r.current_log_id=v.log_id,this.currentUser=r,sessionStorage.setItem(A,JSON.stringify(r)),{success:!0,user:r}}logout(){if(this.currentUser&&this.currentUser.current_log_id){const a=new Date().toISOString().replace("T"," ").substring(0,19);p.updateRow("SECURITY_LOG",this.currentUser.current_log_id,{exit_time:a,status_event:"Logout"})}this.currentUser=null,sessionStorage.removeItem(A),localStorage.removeItem(A)}switchRole(a){const i=p.getTable("USER").find(t=>t.role_id===a);return i?this.login(i.email,i.password):{success:!1,message:"User for selected role not found."}}getCurrentUser(){return this.currentUser}isAuthenticated(){return!!this.currentUser}}const y=new U;function F(n,a){n.innerHTML=`
+import{initializeApp as L}from"https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";import{getFirestore as M,doc as R,setDoc as k}from"https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";import{getAuth as O}from"https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";(function(){const a=document.createElement("link").relList;if(a&&a.supports&&a.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))i(e);new MutationObserver(e=>{for(const n of e)if(n.type==="childList")for(const u of n.addedNodes)u.tagName==="LINK"&&u.rel==="modulepreload"&&i(u)}).observe(document,{childList:!0,subtree:!0});function d(e){const n={};return e.integrity&&(n.integrity=e.integrity),e.referrerPolicy&&(n.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?n.credentials="include":e.crossOrigin==="anonymous"?n.credentials="omit":n.credentials="same-origin",n}function i(e){if(e.ep)return;e.ep=!0;const n=d(e);fetch(e.href,n)}})();const D={apiKey:"AIzaSyAAFXLtkLf55eMIeeTGHpu7KVu-WE9-Zeg",authDomain:"tpms-6e8d8.firebaseapp.com",projectId:"tpms-6e8d8",storageBucket:"tpms-6e8d8.firebasestorage.app",messagingSenderId:"480678660528",appId:"1:480678660528:web:c6e35266d4eb5159d6ee75",measurementId:"G-Z54H1Y13Q0"};let T=null,P=null,N=null,j=!1;try{T=L(D),P=M(T),N=O(T),j=!0,console.log("🔥 Live connected to user Firebase project: TPMS (tpms-6e8d8)!")}catch(o){console.warn("Firebase initialization note:",o)}async function E(o,a){if(P)try{for(const d of a){const i=`${o.toLowerCase()}_id`,e=d[i]?String(d[i]):String(Date.now()),n=R(P,o,e);await k(n,d,{merge:!0})}console.log(`Synced ${a.length} records to Firestore collection: ${o}`)}catch(d){console.warn(`Firestore sync note for ${o}:`,d)}}const I="CTPMS_RELATIONAL_DATABASE_V1",S={ROLE:[{role_id:1,role_name:"Administrator"},{role_id:2,role_name:"TPO"},{role_id:3,role_name:"Student"},{role_id:4,role_name:"Company HR"}],USER:[{user_id:1,name:"Admin Administrator",email:"admin@trcac.edu.in",password:"adminpassword123",role_id:1,is_active:!0},{user_id:2,name:"Prof. Saurabh Vishwakarma (TPO)",email:"tpo@trcac.edu.in",password:"tpopassword123",role_id:2,is_active:!0},{user_id:3,name:"Rahul Sharma",email:"rahul.sharma@trcac.edu.in",password:"studentpassword123",role_id:3,is_active:!0},{user_id:4,name:"Ananya Patel",email:"ananya.patel@trcac.edu.in",password:"studentpassword123",role_id:3,is_active:!0},{user_id:5,name:"Siddharth Verma",email:"siddharth.v@trcac.edu.in",password:"studentpassword123",role_id:3,is_active:!0},{user_id:6,name:"Neha Gupta",email:"neha.gupta@trcac.edu.in",password:"studentpassword123",role_id:3,is_active:!0},{user_id:7,name:"Vikram Singh",email:"vikram.singh@trcac.edu.in",password:"studentpassword123",role_id:3,is_active:!0},{user_id:8,name:"Priya Iyer (TCS HR)",email:"priya.hr@tcs.com",password:"hrpassword123",role_id:4,is_active:!0},{user_id:9,name:"Amitabh Joshi (Google HR)",email:"ajoshi@google.com",password:"hrpassword123",role_id:4,is_active:!0},{user_id:10,name:"Saurabh Vishwakarma (Admin)",email:"cs63saurabh@gmail.com",password:"S1a2u3r4",role_id:1,is_active:!0}],STUDENT:[{student_id:101,user_id:3,roll_number:"TRCAC2024CS001",branch:"B.Sc. CS",cgpa:8.9,skills:"Python, Java, SQL, React, AWS",resume_url:"resumes/rahul_sharma_cv.pdf",placement_status:"Placed"},{student_id:102,user_id:4,roll_number:"TRCAC2024CS002",branch:"B.Sc. CS",cgpa:9.45,skills:"C++, Data Structures, System Design, Node.js",resume_url:"resumes/ananya_patel_cv.pdf",placement_status:"Unplaced"},{student_id:103,user_id:5,roll_number:"TRCAC2024IT015",branch:"B.Sc. IT",cgpa:7.8,skills:"HTML, CSS, JavaScript, PHP, MySQL",resume_url:"resumes/siddharth_v_cv.pdf",placement_status:"Unplaced"},{student_id:104,user_id:6,roll_number:"TRCAC2024DS008",branch:"B.Sc. Data Science",cgpa:8.65,skills:"Python, R, PowerBI, Machine Learning, SQL",resume_url:"resumes/neha_gupta_cv.pdf",placement_status:"Unplaced"},{student_id:105,user_id:7,roll_number:"TRCAC2024CS045",branch:"B.Sc. CS",cgpa:6.75,skills:"HTML, Java, SQL Basics",resume_url:"resumes/vikram_s_cv.pdf",placement_status:"Unplaced"}],COMPANY:[{company_id:201,company_name:"Tata Consultancy Services (TCS)",sector:"IT Services",location:"Mumbai, MH",contact_email:"priya.hr@tcs.com",website:"https://www.tcs.com"},{company_id:202,company_name:"Infosys Limited",sector:"IT & Cloud Services",location:"Bengaluru / Mumbai",contact_email:"campus@infosys.com",website:"https://www.infosys.com"},{company_id:203,company_name:"Google India",sector:"Software & Technology",location:"Hyderabad / Bengaluru",contact_email:"ajoshi@google.com",website:"https://careers.google.com"},{company_id:204,company_name:"Deloitte India",sector:"Consulting & Financial Advisory",location:"Mumbai, MH",contact_email:"hr@deloitte.com",website:"https://www.deloitte.com"}],JOB_POSTING:[{job_id:301,company_id:201,job_title:"Software Engineer - TCS Ninja / Digital",description:"Development and maintenance of enterprise cloud applications. Requires strong problem solving and programming skills.",min_cgpa:7,eligible_branches:"B.Sc. CS, B.Sc. IT, B.Sc. Data Science",ctc:7.5,deadline:"2026-09-15",status:"Open"},{job_id:302,company_id:203,job_title:"Associate Software Engineer",description:"Build scalable software services powering global Google Infrastructure. High algorithmic proficiency required.",min_cgpa:8.5,eligible_branches:"B.Sc. CS, B.Sc. IT",ctc:18,deadline:"2026-09-30",status:"Open"},{job_id:303,company_id:204,job_title:"Risk & Analytics Associate",description:"Perform technical risk modeling, data analytics, and audit compliance for enterprise clients.",min_cgpa:7.5,eligible_branches:"B.Sc. CS, B.Sc. IT, B.Sc. Data Science",ctc:8.75,deadline:"2026-08-30",status:"Open"},{job_id:304,company_id:202,job_title:"Specialist Programmer",description:"Design enterprise software architectures and full-stack solutions.",min_cgpa:8,eligible_branches:"B.Sc. CS, B.Sc. IT",ctc:9.5,deadline:"2026-08-10",status:"Closed"}],APPLICATION:[{application_id:401,student_id:101,job_id:301,applied_date:"2026-08-01 10:30:00",status:"Selected"},{application_id:402,student_id:102,job_id:301,applied_date:"2026-08-02 11:15:00",status:"Shortlisted"},{application_id:403,student_id:102,job_id:302,applied_date:"2026-08-03 14:20:00",status:"Shortlisted"},{application_id:404,student_id:103,job_id:301,applied_date:"2026-08-02 16:45:00",status:"Applied"},{application_id:405,student_id:104,job_id:303,applied_date:"2026-08-04 09:00:00",status:"Shortlisted"}],INTERVIEW:[{interview_id:501,application_id:401,round_number:1,round_type:"Aptitude & Coding Test",scheduled_date:"2026-08-04 10:00:00",venue:"Online Assessment Portal",result:"Pass"},{interview_id:502,application_id:401,round_number:2,round_type:"Technical Interview",scheduled_date:"2026-08-05 14:00:00",venue:"TRCAC Seminar Hall 1",result:"Pass"},{interview_id:503,application_id:401,round_number:3,round_type:"HR Interview",scheduled_date:"2026-08-06 11:30:00",venue:"TPO Conference Room",result:"Pass"},{interview_id:504,application_id:402,round_number:1,round_type:"Aptitude & Coding Test",scheduled_date:"2026-08-10 10:00:00",venue:"TRCAC Computer Lab 3",result:"Pending"},{interview_id:505,application_id:403,round_number:1,round_type:"Technical Screening",scheduled_date:"2026-08-12 15:00:00",venue:"Google Meet (Virtual)",result:"Pending"},{interview_id:506,application_id:405,round_number:1,round_type:"Data Case Study",scheduled_date:"2026-08-11 11:00:00",venue:"TRCAC Lab 2",result:"Pending"}],TRAINING:[{training_id:601,title:"Full-Stack Web & Cloud Boot Camp",trainer_name:"TechSkill Academy",start_date:"2026-07-01",end_date:"2026-07-25",description:"Comprehensive training on React, Node.js, REST APIs, Docker, and AWS deployment.",attendance:[101,102,103],completed_students:[101,102]},{training_id:602,title:"Corporate Communication & Mock HR Interviews",trainer_name:"Prof. Anjali Mehta",start_date:"2026-08-01",end_date:"2026-08-15",description:"Interview body language, group discussion tactics, resume polishing, and aptitude shortcuts.",attendance:[101,102,103,104,105],completed_students:[101]}],PLACEMENT_RECORD:[{placement_id:701,student_id:101,company_id:201,job_id:301,ctc_offered:7.5,offer_date:"2026-08-07",joining_date:"2027-06-15"}],SECURITY_LOG:[{log_id:801,user_id:2,entry_time:"2026-08-08 09:00:00",exit_time:"2026-08-08 17:30:00",status_event:"Success Login"},{log_id:802,user_id:3,entry_time:"2026-08-08 11:14:00",exit_time:"2026-08-08 12:00:00",status_event:"Success Login"},{log_id:803,user_id:1,entry_time:"2026-08-08 14:22:00",exit_time:null,status_event:"Success Login"}]};class q{constructor(){this.init()}init(){if(!localStorage.getItem(I))this.saveAll(S);else{const a=this.getAll();a.USER.some(d=>d.email==="cs63saurabh@gmail.com")||(a.USER.push({user_id:10,name:"Saurabh Vishwakarma (Admin)",email:"cs63saurabh@gmail.com",password:"S1a2u3r4",role_id:1,is_active:!0}),this.saveAll(a))}this.syncAllToFirestore()}async syncAllToFirestore(){try{const a=this.getAll();for(const[d,i]of Object.entries(a))Array.isArray(i)&&i.length>0&&await E(d,i)}catch(a){console.warn("Initial Firestore sync error:",a)}}getAll(){try{const a=localStorage.getItem(I);return a?JSON.parse(a):S}catch(a){return console.error("Error loading DB from LocalStorage",a),S}}saveAll(a){try{localStorage.setItem(I,JSON.stringify(a))}catch(d){console.error("Error saving DB to LocalStorage",d)}}resetToDefault(){return this.saveAll(S),S}getTable(a){return this.getAll()[a]||[]}insertRow(a,d){const i=this.getAll();i[a]||(i[a]=[]);const e=`${a.toLowerCase()}_id`;if(!d[e]){const n=i[a].reduce((u,c)=>c[e]>u?c[e]:u,100);d[e]=n+1}return i[a].push(d),this.saveAll(i),E(a,[d]),d}updateRow(a,d,i){const e=this.getAll(),n=`${a.toLowerCase()}_id`,u=e[a]||[],c=u.findIndex(r=>r[n]===d);return c!==-1?(u[c]={...u[c],...i},e[a]=u,this.saveAll(e),E(a,[u[c]]),u[c]):null}deleteRow(a,d){const i=this.getAll(),e=`${a.toLowerCase()}_id`;return i[a]?(i[a]=i[a].filter(n=>n[e]!==d),this.saveAll(i),!0):!1}getStudentFullProfiles(){const a=this.getAll();return a.STUDENT.map(d=>{const i=a.USER.find(u=>u.user_id===d.user_id)||{},e=a.PLACEMENT_RECORD.find(u=>u.student_id===d.student_id);let n=null;return e&&(n=a.COMPANY.find(u=>u.company_id===e.company_id)),{...d,name:i.name||"Unknown",email:i.email||"",is_active:i.is_active,placement_details:e?{...e,company_name:n==null?void 0:n.company_name}:null}})}getJobPostingsDetailed(){const a=this.getAll();return a.JOB_POSTING.map(d=>{const i=a.COMPANY.find(n=>n.company_id===d.company_id)||{},e=a.APPLICATION.filter(n=>n.job_id===d.job_id);return{...d,company_name:i.company_name||"N/A",sector:i.sector||"N/A",location:i.location||"N/A",application_count:e.length}})}getApplicationsDetailed(){const a=this.getAll();return a.APPLICATION.map(d=>{const i=a.STUDENT.find(r=>r.student_id===d.student_id)||{},e=a.USER.find(r=>r.user_id===i.user_id)||{},n=a.JOB_POSTING.find(r=>r.job_id===d.job_id)||{},u=a.COMPANY.find(r=>r.company_id===n.company_id)||{},c=a.INTERVIEW.filter(r=>r.application_id===d.application_id);return{...d,student_name:e.name||"Unknown Student",roll_number:i.roll_number||"",branch:i.branch||"",cgpa:i.cgpa||0,job_title:n.job_title||"N/A",company_name:u.company_name||"N/A",ctc:n.ctc||0,interviews:c}})}}const m=new q,A="CTPMS_ACTIVE_SESSION";class U{constructor(){this.currentUser=this.loadSession()}loadSession(){try{const a=sessionStorage.getItem(A)||localStorage.getItem(A);return a?JSON.parse(a):null}catch{return null}}login(a,d){const e=m.getTable("USER").find(l=>l.email.toLowerCase()===a.toLowerCase()&&l.password===d);if(!e)return{success:!1,message:"Invalid email credentials or password."};if(!e.is_active)return{success:!1,message:"Account is deactivated. Please contact Administrator."};const u=m.getTable("ROLE").find(l=>l.role_id===e.role_id)||{};let c=null;e.role_id===3&&(c=m.getTable("STUDENT").find(l=>l.user_id===e.user_id)||null);const r={user_id:e.user_id,name:e.name,email:e.email,role_id:e.role_id,role_name:u.role_name||"User",student_id:c?c.student_id:null,login_time:new Date().toISOString()},h=new Date().toISOString().replace("T"," ").substring(0,19),b=m.insertRow("SECURITY_LOG",{user_id:e.user_id,entry_time:h,exit_time:null,status_event:"Success Login"}),p=b.security_log_id||b.log_id||b.id;return r.current_log_id=p,this.currentUser=r,sessionStorage.setItem(A,JSON.stringify(r)),{success:!0,user:r}}logout(){if(this.currentUser){const a=new Date().toISOString().replace("T"," ").substring(0,19);let d=this.currentUser.current_log_id;if(!d){const e=[...m.getTable("SECURITY_LOG")].reverse().find(n=>n.user_id===this.currentUser.user_id&&!n.exit_time);e&&(d=e.security_log_id||e.log_id)}d&&m.updateRow("SECURITY_LOG",d,{exit_time:a,status_event:"Logout"})}this.currentUser=null,sessionStorage.removeItem(A),localStorage.removeItem(A)}switchRole(a){const i=m.getTable("USER").find(e=>e.role_id===a);return i?this.login(i.email,i.password):{success:!1,message:"User for selected role not found."}}getCurrentUser(){return this.currentUser}isAuthenticated(){return!!this.currentUser}}const y=new U;function F(o,a){o.innerHTML=`
     <div class="login-bg fade-in">
       <div class="card login-card p-4 p-md-5">
         <div class="text-center mb-4">
@@ -41,15 +41,15 @@ import{initializeApp as L}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
         </div>
       </div>
     </div>
-  `;const d=n.querySelector("#login-form"),i=n.querySelector("#login-alert");d.addEventListener("submit",t=>{t.preventDefault();const o=n.querySelector("#login-email").value,u=n.querySelector("#login-password").value,c=y.login(o,u);c.success?a():(i.textContent=c.message,i.classList.remove("d-none"))})}function B(n,a){var b;const d=y.getCurrentUser(),i=p.getStudentFullProfiles(),t=p.getTable("COMPANY"),o=p.getJobPostingsDetailed(),u=p.getApplicationsDetailed(),c=p.getTable("PLACEMENT_RECORD"),r=i.length,h=i.filter(f=>f.placement_status==="Placed").length,v=r>0?(h/r*100).toFixed(1):0,m=o.filter(f=>f.status==="Open").length,l=c.reduce((f,g)=>g.ctc_offered>f?g.ctc_offered:f,0),e=c.length>0?(c.reduce((f,g)=>f+g.ctc_offered,0)/c.length).toFixed(2):"0.00";let s="";if(d.role_id===3){const f=i.find(x=>x.user_id===d.user_id)||{},g=u.filter(x=>x.student_id===f.student_id);s=`
+  `;const d=o.querySelector("#login-form"),i=o.querySelector("#login-alert");d.addEventListener("submit",e=>{e.preventDefault();const n=o.querySelector("#login-email").value,u=o.querySelector("#login-password").value,c=y.login(n,u);c.success?a():(i.textContent=c.message,i.classList.remove("d-none"))})}function B(o,a){var v;const d=y.getCurrentUser(),i=m.getStudentFullProfiles(),e=m.getTable("COMPANY"),n=m.getJobPostingsDetailed(),u=m.getApplicationsDetailed(),c=m.getTable("PLACEMENT_RECORD"),r=i.length,h=i.filter(g=>g.placement_status==="Placed").length,b=r>0?(h/r*100).toFixed(1):0,p=n.filter(g=>g.status==="Open").length,l=c.reduce((g,f)=>f.ctc_offered>g?f.ctc_offered:g,0),t=c.length>0?(c.reduce((g,f)=>g+f.ctc_offered,0)/c.length).toFixed(2):"0.00";let s="";if(d.role_id===3){const g=i.find(x=>x.user_id===d.user_id)||{},f=u.filter(x=>x.student_id===g.student_id);s=`
       <div class="row g-4 mb-4">
         <div class="col-md-4">
           <div class="card card-stat p-3 border-0 bg-primary text-white">
             <div class="d-flex justify-content-between align-items-center">
               <div>
                 <small class="text-white-50 text-uppercase fw-semibold text-xs">My Profile Status</small>
-                <h4 class="fw-bold mb-0 text-white mt-1">${f.placement_status||"Unplaced"}</h4>
-                <div class="text-white-50 text-xs mt-1">Roll No: ${f.roll_number||"N/A"} • CGPA: ${f.cgpa?f.cgpa.toFixed(2):"0.00"}</div>
+                <h4 class="fw-bold mb-0 text-white mt-1">${g.placement_status||"Unplaced"}</h4>
+                <div class="text-white-50 text-xs mt-1">Roll No: ${g.roll_number||"N/A"} • CGPA: ${g.cgpa?g.cgpa.toFixed(2):"0.00"}</div>
               </div>
               <div class="icon-box bg-white bg-opacity-20 text-white">
                 <i class="bi bi-mortarboard fs-3"></i>
@@ -62,7 +62,7 @@ import{initializeApp as L}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
             <div class="d-flex justify-content-between align-items-center">
               <div>
                 <small class="text-white-50 text-uppercase fw-semibold text-xs">My Drives Applied</small>
-                <h4 class="fw-bold mb-0 text-white mt-1">${g.length}</h4>
+                <h4 class="fw-bold mb-0 text-white mt-1">${f.length}</h4>
                 <div class="text-white-50 text-xs mt-1">Active drives tracked</div>
               </div>
               <div class="icon-box bg-white bg-opacity-20 text-white">
@@ -76,7 +76,7 @@ import{initializeApp as L}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
             <div class="d-flex justify-content-between align-items-center">
               <div>
                 <small class="text-white-50 text-uppercase fw-semibold text-xs">Shortlisted Drives</small>
-                <h4 class="fw-bold mb-0 text-white mt-1">${g.filter(x=>x.status==="Shortlisted"||x.status==="Selected").length}</h4>
+                <h4 class="fw-bold mb-0 text-white mt-1">${f.filter(x=>x.status==="Shortlisted"||x.status==="Selected").length}</h4>
                 <div class="text-white-50 text-xs mt-1">Next interview rounds ready</div>
               </div>
               <div class="icon-box bg-white bg-opacity-20 text-white">
@@ -104,7 +104,7 @@ import{initializeApp as L}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
               </tr>
             </thead>
             <tbody>
-              ${g.length===0?'<tr><td colspan="5" class="text-center py-4 text-muted">You have not applied to any job drives yet.</td></tr>':g.map(x=>`
+              ${f.length===0?'<tr><td colspan="5" class="text-center py-4 text-muted">You have not applied to any job drives yet.</td></tr>':f.map(x=>`
                   <tr>
                     <td>
                       <div class="fw-bold text-dark">${x.job_title}</div>
@@ -124,15 +124,15 @@ import{initializeApp as L}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
           </table>
         </div>
       </div>
-    `}else if(d.role_id===4){const f=p.getTable("USER").find(_=>_.user_id===d.user_id),g=t.find(_=>_.contact_email===f.email)||t[0],x=o.filter(_=>_.company_id===g.company_id),w=u.filter(_=>x.some(C=>C.job_id===_.job_id));s=`
+    `}else if(d.role_id===4){const g=m.getTable("USER").find(_=>_.user_id===d.user_id),f=e.find(_=>_.contact_email===g.email)||e[0],x=n.filter(_=>_.company_id===f.company_id),w=u.filter(_=>x.some(C=>C.job_id===_.job_id));s=`
       <div class="row g-4 mb-4">
         <div class="col-md-4">
           <div class="card card-stat p-3 border-0 bg-navy text-white">
             <div class="d-flex justify-content-between align-items-center">
               <div>
                 <small class="text-white-50 text-uppercase fw-semibold text-xs">Company Profile</small>
-                <h5 class="fw-bold mb-0 text-white mt-1">${g.company_name}</h5>
-                <div class="text-white-50 text-xs mt-1">${g.sector} • ${g.location}</div>
+                <h5 class="fw-bold mb-0 text-white mt-1">${f.company_name}</h5>
+                <div class="text-white-50 text-xs mt-1">${f.sector} • ${f.location}</div>
               </div>
               <div class="icon-box bg-white bg-opacity-20 text-white">
                 <i class="bi bi-building fs-3"></i>
@@ -177,7 +177,7 @@ import{initializeApp as L}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
               <div>
                 <small class="text-muted text-uppercase fw-bold text-xs">Total Registered Students</small>
                 <h3 class="fw-bold text-navy mb-0 mt-1">${r}</h3>
-                <small class="text-success fw-semibold text-xs"><i class="bi bi-graph-up me-1"></i>${v}% Placement Rate</small>
+                <small class="text-success fw-semibold text-xs"><i class="bi bi-graph-up me-1"></i>${b}% Placement Rate</small>
               </div>
               <div class="icon-box bg-primary-subtle text-primary">
                 <i class="bi bi-people"></i>
@@ -206,8 +206,8 @@ import{initializeApp as L}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
             <div class="d-flex justify-content-between align-items-center">
               <div>
                 <small class="text-muted text-uppercase fw-bold text-xs">Active Recruitment Drives</small>
-                <h3 class="fw-bold text-dark mb-0 mt-1">${m}</h3>
-                <small class="text-muted text-xs">${t.length} hiring companies</small>
+                <h3 class="fw-bold text-dark mb-0 mt-1">${p}</h3>
+                <small class="text-muted text-xs">${e.length} hiring companies</small>
               </div>
               <div class="icon-box bg-warning-subtle text-warning">
                 <i class="bi bi-briefcase"></i>
@@ -222,7 +222,7 @@ import{initializeApp as L}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
               <div>
                 <small class="text-muted text-uppercase fw-bold text-xs">Highest / Avg CTC Offered</small>
                 <h3 class="fw-bold text-primary mb-0 mt-1">${l} LPA</h3>
-                <small class="text-muted text-xs">Average: ${e} LPA</small>
+                <small class="text-muted text-xs">Average: ${t} LPA</small>
               </div>
               <div class="icon-box bg-success-subtle text-success">
                 <i class="bi bi-currency-dollar"></i>
@@ -252,16 +252,16 @@ import{initializeApp as L}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
                   </tr>
                 </thead>
                 <tbody>
-                  ${u.slice(0,5).map(f=>`
+                  ${u.slice(0,5).map(g=>`
                     <tr>
                       <td>
-                        <div class="fw-semibold text-dark">${f.student_name}</div>
-                        <small class="text-muted">${f.roll_number}</small>
+                        <div class="fw-semibold text-dark">${g.student_name}</div>
+                        <small class="text-muted">${g.roll_number}</small>
                       </td>
-                      <td class="text-muted text-sm">${f.branch}</td>
-                      <td class="fw-semibold text-dark text-sm">${f.job_title}</td>
-                      <td class="text-muted text-sm">${f.company_name}</td>
-                      <td><span class="badge badge-status badge-${f.status.toLowerCase()}">${f.status}</span></td>
+                      <td class="text-muted text-sm">${g.branch}</td>
+                      <td class="fw-semibold text-dark text-sm">${g.job_title}</td>
+                      <td class="text-muted text-sm">${g.company_name}</td>
+                      <td><span class="badge badge-status badge-${g.status.toLowerCase()}">${g.status}</span></td>
                     </tr>
                   `).join("")}
                 </tbody>
@@ -290,7 +290,7 @@ import{initializeApp as L}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
           </div>
         </div>
       </div>
-    `;n.innerHTML=`
+    `;o.innerHTML=`
     <div class="fade-in">
       <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
@@ -306,12 +306,12 @@ import{initializeApp as L}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
 
       ${s}
     </div>
-  `,n.querySelectorAll(".navigate-btn").forEach(f=>{f.addEventListener("click",()=>{const g=f.getAttribute("data-page");a(g)})}),(b=n.querySelector("#refresh-dashboard"))==null||b.addEventListener("click",()=>{B(n,a)})}function H(n){if(y.getCurrentUser().role_id!==1){n.innerHTML=`
+  `,o.querySelectorAll(".navigate-btn").forEach(g=>{g.addEventListener("click",()=>{const f=g.getAttribute("data-page");a(f)})}),(v=o.querySelector("#refresh-dashboard"))==null||v.addEventListener("click",()=>{B(o,a)})}function H(o){if(y.getCurrentUser().role_id!==1){o.innerHTML=`
       <div class="alert alert-danger rounded-3 p-4">
         <h5 class="fw-bold"><i class="bi bi-shield-lock-fill me-2"></i>Access Restricted</h5>
         <p class="mb-0">User Management is restricted to System Administrator accounts only.</p>
       </div>
-    `;return}function d(){const t=p.getTable("USER"),o=p.getTable("ROLE"),u=n.querySelector("#users-tbody");u&&(u.innerHTML=t.map(c=>{const r=o.find(h=>h.role_id===c.role_id)||{};return`
+    `;return}function d(){const e=m.getTable("USER"),n=m.getTable("ROLE"),u=o.querySelector("#users-tbody");u&&(u.innerHTML=e.map(c=>{const r=n.find(h=>h.role_id===c.role_id)||{};return`
         <tr>
           <td>
             <div class="fw-bold text-dark">${c.name}</div>
@@ -331,7 +331,7 @@ import{initializeApp as L}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
             </button>
           </td>
         </tr>
-      `}).join(""),n.querySelectorAll(".toggle-active-btn").forEach(c=>{c.addEventListener("click",()=>{const r=parseInt(c.getAttribute("data-id")),h=t.find(v=>v.user_id===r);h&&(p.updateRow("USER",r,{is_active:!h.is_active}),d())})}),n.querySelectorAll(".edit-user-btn").forEach(c=>{c.addEventListener("click",()=>{const r=parseInt(c.getAttribute("data-id"));i(r)})}))}n.innerHTML=`
+      `}).join(""),o.querySelectorAll(".toggle-active-btn").forEach(c=>{c.addEventListener("click",()=>{const r=parseInt(c.getAttribute("data-id")),h=e.find(b=>b.user_id===r);h&&(m.updateRow("USER",r,{is_active:!h.is_active}),d())})}),o.querySelectorAll(".edit-user-btn").forEach(c=>{c.addEventListener("click",()=>{const r=parseInt(c.getAttribute("data-id"));i(r)})}))}o.innerHTML=`
     <div class="fade-in">
       <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
@@ -346,7 +346,7 @@ import{initializeApp as L}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
       <div class="card custom-table-card">
         <div class="card-header bg-white py-3 border-bottom d-flex justify-content-between align-items-center">
           <h6 class="fw-bold mb-0 text-navy"><i class="bi bi-people-fill me-2 text-primary"></i>System User Directory</h6>
-          <span class="text-muted text-xs">Total Users Registered: ${p.getTable("USER").length}</span>
+          <span class="text-muted text-xs">Total Users Registered: ${m.getTable("USER").length}</span>
         </div>
         <div class="table-responsive">
           <table class="table table-hover align-middle mb-0">
@@ -366,7 +366,7 @@ import{initializeApp as L}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
         </div>
       </div>
     </div>
-  `,d(),n.querySelector("#add-user-btn").addEventListener("click",()=>{const t=document.getElementById("ctpmsModalTitle"),o=document.getElementById("ctpmsModalBody"),u=document.getElementById("ctpmsModalFooter");t.textContent="Create New User Account",o.innerHTML=`
+  `,d(),o.querySelector("#add-user-btn").addEventListener("click",()=>{const e=document.getElementById("ctpmsModalTitle"),n=document.getElementById("ctpmsModalBody"),u=document.getElementById("ctpmsModalFooter");e.textContent="Create New User Account",n.innerHTML=`
       <form id="add-user-form">
         <div class="mb-3">
           <label class="form-label text-xs fw-bold text-uppercase text-muted">Full Name</label>
@@ -393,7 +393,7 @@ import{initializeApp as L}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
     `,u.innerHTML=`
       <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
       <button type="button" class="btn btn-primary rounded-pill px-4" id="submit-new-user">Create Account</button>
-    `;const c=new bootstrap.Modal(document.getElementById("ctpmsModal"));c.show(),document.getElementById("submit-new-user").onclick=()=>{const r=document.getElementById("new-user-name").value,h=document.getElementById("new-user-email").value,v=document.getElementById("new-user-pass").value,m=parseInt(document.getElementById("new-user-role").value);if(!r||!h||!v)return;const l=p.insertRow("USER",{name:r,email:h,password:v,role_id:m,is_active:!0});m===3&&p.insertRow("STUDENT",{user_id:l.user_id,roll_number:`TRCAC2026CS${Math.floor(100+Math.random()*900)}`,branch:"B.Sc. CS",cgpa:7.5,skills:"HTML, CSS, JavaScript",resume_url:`resumes/student_${l.user_id}.pdf`,placement_status:"Unplaced"}),c.hide(),d()}});function i(t){const u=p.getTable("USER").find(m=>m.user_id===t);if(!u)return;const c=document.getElementById("ctpmsModalTitle"),r=document.getElementById("ctpmsModalBody"),h=document.getElementById("ctpmsModalFooter");c.textContent=`Edit User: ${u.name}`,r.innerHTML=`
+    `;const c=new bootstrap.Modal(document.getElementById("ctpmsModal"));c.show(),document.getElementById("submit-new-user").onclick=()=>{const r=document.getElementById("new-user-name").value,h=document.getElementById("new-user-email").value,b=document.getElementById("new-user-pass").value,p=parseInt(document.getElementById("new-user-role").value);if(!r||!h||!b)return;const l=m.insertRow("USER",{name:r,email:h,password:b,role_id:p,is_active:!0});p===3&&m.insertRow("STUDENT",{user_id:l.user_id,roll_number:`TRCAC2026CS${Math.floor(100+Math.random()*900)}`,branch:"B.Sc. CS",cgpa:7.5,skills:"HTML, CSS, JavaScript",resume_url:`resumes/student_${l.user_id}.pdf`,placement_status:"Unplaced"}),c.hide(),d()}});function i(e){const u=m.getTable("USER").find(p=>p.user_id===e);if(!u)return;const c=document.getElementById("ctpmsModalTitle"),r=document.getElementById("ctpmsModalBody"),h=document.getElementById("ctpmsModalFooter");c.textContent=`Edit User: ${u.name}`,r.innerHTML=`
       <form id="edit-user-form">
         <div class="mb-3">
           <label class="form-label text-xs fw-bold text-uppercase text-muted">Full Name</label>
@@ -416,31 +416,31 @@ import{initializeApp as L}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
     `,h.innerHTML=`
       <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
       <button type="button" class="btn btn-primary rounded-pill px-4" id="save-edit-user">Save Changes</button>
-    `;const v=new bootstrap.Modal(document.getElementById("ctpmsModal"));v.show(),document.getElementById("save-edit-user").onclick=()=>{const m=document.getElementById("edit-user-name").value,l=document.getElementById("edit-user-email").value,e=parseInt(document.getElementById("edit-user-role").value);p.updateRow("USER",t,{name:m,email:l,role_id:e}),v.hide(),d()}}}function G(n){const a=y.getCurrentUser(),d=a.role_id===1||a.role_id===2;function i(){const u=p.getStudentFullProfiles(),c=n.querySelector("#filter-branch").value,r=n.querySelector("#filter-status").value,h=parseFloat(n.querySelector("#filter-cgpa").value)||0,v=n.querySelector("#search-student").value.toLowerCase(),m=u.filter(e=>{const s=!c||e.branch===c,b=!r||e.placement_status===r,f=e.cgpa>=h,g=!v||e.name.toLowerCase().includes(v)||e.roll_number.toLowerCase().includes(v)||e.skills.toLowerCase().includes(v);return s&&b&&f&&g}),l=n.querySelector("#students-tbody");if(l){if(m.length===0){l.innerHTML='<tr><td colspan="7" class="text-center py-4 text-muted">No students matching the filter criteria.</td></tr>';return}l.innerHTML=m.map(e=>`
+    `;const b=new bootstrap.Modal(document.getElementById("ctpmsModal"));b.show(),document.getElementById("save-edit-user").onclick=()=>{const p=document.getElementById("edit-user-name").value,l=document.getElementById("edit-user-email").value,t=parseInt(document.getElementById("edit-user-role").value);m.updateRow("USER",e,{name:p,email:l,role_id:t}),b.hide(),d()}}}function G(o){const a=y.getCurrentUser(),d=a.role_id===1||a.role_id===2;function i(){const u=m.getStudentFullProfiles(),c=o.querySelector("#filter-branch").value,r=o.querySelector("#filter-status").value,h=parseFloat(o.querySelector("#filter-cgpa").value)||0,b=o.querySelector("#search-student").value.toLowerCase(),p=u.filter(t=>{const s=!c||t.branch===c,v=!r||t.placement_status===r,g=t.cgpa>=h,f=!b||t.name.toLowerCase().includes(b)||t.roll_number.toLowerCase().includes(b)||t.skills.toLowerCase().includes(b);return s&&v&&g&&f}),l=o.querySelector("#students-tbody");if(l){if(p.length===0){l.innerHTML='<tr><td colspan="7" class="text-center py-4 text-muted">No students matching the filter criteria.</td></tr>';return}l.innerHTML=p.map(t=>`
       <tr>
         <td>
-          <div class="fw-bold text-dark">${e.name}</div>
-          <small class="text-muted"><i class="bi bi-person-vcard me-1"></i>${e.roll_number}</small>
+          <div class="fw-bold text-dark">${t.name}</div>
+          <small class="text-muted"><i class="bi bi-person-vcard me-1"></i>${t.roll_number}</small>
         </td>
-        <td><span class="badge bg-light text-dark border">${e.branch}</span></td>
-        <td class="fw-bold ${e.cgpa>=8?"text-success":"text-dark"}">${e.cgpa.toFixed(2)}</td>
+        <td><span class="badge bg-light text-dark border">${t.branch}</span></td>
+        <td class="fw-bold ${t.cgpa>=8?"text-success":"text-dark"}">${t.cgpa.toFixed(2)}</td>
         <td>
-          <div class="text-truncate text-sm" style="max-width: 220px;" title="${e.skills}">
-            ${e.skills.split(",").map(s=>`<span class="badge bg-secondary-subtle text-secondary me-1 text-xs">${s.trim()}</span>`).join("")}
+          <div class="text-truncate text-sm" style="max-width: 220px;" title="${t.skills}">
+            ${t.skills.split(",").map(s=>`<span class="badge bg-secondary-subtle text-secondary me-1 text-xs">${s.trim()}</span>`).join("")}
           </div>
         </td>
-        <td class="text-muted text-xs">${e.email}</td>
+        <td class="text-muted text-xs">${t.email}</td>
         <td>
-          <span class="badge badge-status badge-${e.placement_status.toLowerCase().replace(/\s+/g,"")}">
-            ${e.placement_status}
+          <span class="badge badge-status badge-${t.placement_status.toLowerCase().replace(/\s+/g,"")}">
+            ${t.placement_status}
           </span>
         </td>
         <td>
-          <button class="btn btn-xs btn-outline-primary rounded-pill view-student-btn me-1" data-id="${e.student_id}">View Profile</button>
-          ${d?`<button class="btn btn-xs btn-outline-dark rounded-pill edit-student-btn" data-id="${e.student_id}">Edit Status</button>`:""}
+          <button class="btn btn-xs btn-outline-primary rounded-pill view-student-btn me-1" data-id="${t.student_id}">View Profile</button>
+          ${d?`<button class="btn btn-xs btn-outline-dark rounded-pill edit-student-btn" data-id="${t.student_id}">Edit Status</button>`:""}
         </td>
       </tr>
-    `).join(""),n.querySelectorAll(".view-student-btn").forEach(e=>{e.addEventListener("click",()=>{const s=parseInt(e.getAttribute("data-id"));t(s)})}),n.querySelectorAll(".edit-student-btn").forEach(e=>{e.addEventListener("click",()=>{const s=parseInt(e.getAttribute("data-id"));o(s)})})}}n.innerHTML=`
+    `).join(""),o.querySelectorAll(".view-student-btn").forEach(t=>{t.addEventListener("click",()=>{const s=parseInt(t.getAttribute("data-id"));e(s)})}),o.querySelectorAll(".edit-student-btn").forEach(t=>{t.addEventListener("click",()=>{const s=parseInt(t.getAttribute("data-id"));n(s)})})}}o.innerHTML=`
     <div class="fade-in">
       <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
@@ -512,7 +512,7 @@ import{initializeApp as L}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
         </div>
       </div>
     </div>
-  `,n.querySelector("#search-student").addEventListener("input",i),n.querySelector("#filter-branch").addEventListener("change",i),n.querySelector("#filter-cgpa").addEventListener("change",i),n.querySelector("#filter-status").addEventListener("change",i),i();function t(u){const r=p.getStudentFullProfiles().find(e=>e.student_id===u);if(!r)return;const h=document.getElementById("ctpmsModalTitle"),v=document.getElementById("ctpmsModalBody"),m=document.getElementById("ctpmsModalFooter");h.textContent=`Student Profile: ${r.name}`,v.innerHTML=`
+  `,o.querySelector("#search-student").addEventListener("input",i),o.querySelector("#filter-branch").addEventListener("change",i),o.querySelector("#filter-cgpa").addEventListener("change",i),o.querySelector("#filter-status").addEventListener("change",i),i();function e(u){const r=m.getStudentFullProfiles().find(t=>t.student_id===u);if(!r)return;const h=document.getElementById("ctpmsModalTitle"),b=document.getElementById("ctpmsModalBody"),p=document.getElementById("ctpmsModalFooter");h.textContent=`Student Profile: ${r.name}`,b.innerHTML=`
       <div class="row g-4">
         <div class="col-md-4 text-center border-end">
           <div class="avatar bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center fw-bold mb-3 fs-3" style="width: 80px; height: 80px;">
@@ -537,9 +537,9 @@ import{initializeApp as L}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
           </table>
         </div>
       </div>
-    `,m.innerHTML=`
+    `,p.innerHTML=`
       <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Close</button>
-    `,new bootstrap.Modal(document.getElementById("ctpmsModal")).show()}function o(u){const r=p.getStudentFullProfiles().find(e=>e.student_id===u);if(!r)return;const h=document.getElementById("ctpmsModalTitle"),v=document.getElementById("ctpmsModalBody"),m=document.getElementById("ctpmsModalFooter");h.textContent=`Update Student Eligibility: ${r.name}`,v.innerHTML=`
+    `,new bootstrap.Modal(document.getElementById("ctpmsModal")).show()}function n(u){const r=m.getStudentFullProfiles().find(t=>t.student_id===u);if(!r)return;const h=document.getElementById("ctpmsModalTitle"),b=document.getElementById("ctpmsModalBody"),p=document.getElementById("ctpmsModalFooter");h.textContent=`Update Student Eligibility: ${r.name}`,b.innerHTML=`
       <form id="edit-student-form">
         <div class="mb-3">
           <label class="form-label text-xs fw-bold text-uppercase text-muted">Academic CGPA Score</label>
@@ -558,25 +558,25 @@ import{initializeApp as L}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
           <textarea id="edit-student-skills" class="form-control" rows="2">${r.skills}</textarea>
         </div>
       </form>
-    `,m.innerHTML=`
+    `,p.innerHTML=`
       <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
       <button type="button" class="btn btn-primary rounded-pill px-4" id="save-student-changes">Save Updates</button>
-    `;const l=new bootstrap.Modal(document.getElementById("ctpmsModal"));l.show(),document.getElementById("save-student-changes").onclick=()=>{const e=parseFloat(document.getElementById("edit-student-cgpa").value),s=document.getElementById("edit-student-status").value,b=document.getElementById("edit-student-skills").value;p.updateRow("STUDENT",u,{cgpa:e,placement_status:s,skills:b}),l.hide(),i()}}}function J(n,a){var c;const d=y.getCurrentUser(),i=d.role_id===1||d.role_id===2;function t(){const r=p.getTable("COMPANY"),h=p.getTable("JOB_POSTING"),v=n.querySelector("#companies-grid");v&&(v.innerHTML=r.map(m=>{const l=h.filter(e=>e.company_id===m.company_id&&e.status==="Open").length;return`
+    `;const l=new bootstrap.Modal(document.getElementById("ctpmsModal"));l.show(),document.getElementById("save-student-changes").onclick=()=>{const t=parseFloat(document.getElementById("edit-student-cgpa").value),s=document.getElementById("edit-student-status").value,v=document.getElementById("edit-student-skills").value;m.updateRow("STUDENT",u,{cgpa:t,placement_status:s,skills:v}),l.hide(),i()}}}function J(o,a){var c;const d=y.getCurrentUser(),i=d.role_id===1||d.role_id===2;function e(){const r=m.getTable("COMPANY"),h=m.getTable("JOB_POSTING"),b=o.querySelector("#companies-grid");b&&(b.innerHTML=r.map(p=>{const l=h.filter(t=>t.company_id===p.company_id&&t.status==="Open").length;return`
         <div class="col-md-6 col-lg-4">
           <div class="card border-0 shadow-sm rounded-4 h-100 p-3 bg-white">
             <div class="d-flex align-items-center gap-3 mb-3">
               <div class="avatar bg-navy text-white rounded-3 d-flex align-items-center justify-content-center fw-bold fs-4" style="width: 52px; height: 52px;">
-                ${m.company_name.charAt(0)}
+                ${p.company_name.charAt(0)}
               </div>
               <div>
-                <h6 class="fw-bold mb-0 text-navy">${m.company_name}</h6>
-                <span class="badge bg-light text-secondary border text-xs mt-1">${m.sector}</span>
+                <h6 class="fw-bold mb-0 text-navy">${p.company_name}</h6>
+                <span class="badge bg-light text-secondary border text-xs mt-1">${p.sector}</span>
               </div>
             </div>
             <div class="border-top pt-2.5 mb-3 fs-7">
-              <div class="text-muted mb-1"><i class="bi bi-geo-alt me-1 text-danger"></i>${m.location}</div>
-              <div class="text-muted mb-1"><i class="bi bi-envelope me-1 text-primary"></i>${m.contact_email}</div>
-              <div class="text-muted"><i class="bi bi-globe me-1 text-teal"></i><a href="${m.website}" target="_blank" class="text-decoration-none text-muted">${m.website}</a></div>
+              <div class="text-muted mb-1"><i class="bi bi-geo-alt me-1 text-danger"></i>${p.location}</div>
+              <div class="text-muted mb-1"><i class="bi bi-envelope me-1 text-primary"></i>${p.contact_email}</div>
+              <div class="text-muted"><i class="bi bi-globe me-1 text-teal"></i><a href="${p.website}" target="_blank" class="text-decoration-none text-muted">${p.website}</a></div>
             </div>
             <div class="d-flex justify-content-between align-items-center border-top pt-2 mt-auto">
               <span class="badge bg-primary-subtle text-primary rounded-pill text-xs fw-semibold">
@@ -584,14 +584,14 @@ import{initializeApp as L}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
               </span>
               ${i?`
                 <div>
-                  <button class="btn btn-xs btn-outline-primary rounded-pill edit-company-btn me-1" data-id="${m.company_id}">Edit</button>
-                  <button class="btn btn-xs btn-outline-dark rounded-pill view-drives-btn" data-id="${m.company_id}">View Drives</button>
+                  <button class="btn btn-xs btn-outline-primary rounded-pill edit-company-btn me-1" data-id="${p.company_id}">Edit</button>
+                  <button class="btn btn-xs btn-outline-dark rounded-pill view-drives-btn" data-id="${p.company_id}">View Drives</button>
                 </div>
               `:""}
             </div>
           </div>
         </div>
-      `}).join(""),n.querySelectorAll(".edit-company-btn").forEach(m=>{m.addEventListener("click",()=>{const l=parseInt(m.getAttribute("data-id"));u(l)})}),n.querySelectorAll(".view-drives-btn").forEach(m=>{m.addEventListener("click",()=>{a("jobs")})}))}n.innerHTML=`
+      `}).join(""),o.querySelectorAll(".edit-company-btn").forEach(p=>{p.addEventListener("click",()=>{const l=parseInt(p.getAttribute("data-id"));u(l)})}),o.querySelectorAll(".view-drives-btn").forEach(p=>{p.addEventListener("click",()=>{a("jobs")})}))}o.innerHTML=`
     <div class="fade-in">
       <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
@@ -609,7 +609,7 @@ import{initializeApp as L}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
         <!-- Populated dynamically -->
       </div>
     </div>
-  `,t(),i&&((c=n.querySelector("#add-company-btn"))==null||c.addEventListener("click",()=>{o()}));function o(){const r=document.getElementById("ctpmsModalTitle"),h=document.getElementById("ctpmsModalBody"),v=document.getElementById("ctpmsModalFooter");r.textContent="Register New Recruiting Company",h.innerHTML=`
+  `,e(),i&&((c=o.querySelector("#add-company-btn"))==null||c.addEventListener("click",()=>{n()}));function n(){const r=document.getElementById("ctpmsModalTitle"),h=document.getElementById("ctpmsModalBody"),b=document.getElementById("ctpmsModalFooter");r.textContent="Register New Recruiting Company",h.innerHTML=`
       <form id="add-company-form">
         <div class="mb-3">
           <label class="form-label text-xs fw-bold text-uppercase text-muted">Company Official Name</label>
@@ -632,36 +632,36 @@ import{initializeApp as L}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
           <input type="url" id="comp-website" class="form-control" placeholder="https://www.company.com" required>
         </div>
       </form>
-    `,v.innerHTML=`
+    `,b.innerHTML=`
       <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
       <button type="button" class="btn btn-primary rounded-pill px-4" id="save-new-company">Save Company</button>
-    `;const m=new bootstrap.Modal(document.getElementById("ctpmsModal"));m.show(),document.getElementById("save-new-company").onclick=()=>{const l=document.getElementById("comp-name").value,e=document.getElementById("comp-sector").value,s=document.getElementById("comp-location").value,b=document.getElementById("comp-email").value,f=document.getElementById("comp-website").value;!l||!b||(p.insertRow("COMPANY",{company_name:l,sector:e,location:s,contact_email:b,website:f}),m.hide(),t())}}function u(r){const v=p.getTable("COMPANY").find(b=>b.company_id===r);if(!v)return;const m=document.getElementById("ctpmsModalTitle"),l=document.getElementById("ctpmsModalBody"),e=document.getElementById("ctpmsModalFooter");m.textContent=`Edit Company: ${v.company_name}`,l.innerHTML=`
+    `;const p=new bootstrap.Modal(document.getElementById("ctpmsModal"));p.show(),document.getElementById("save-new-company").onclick=()=>{const l=document.getElementById("comp-name").value,t=document.getElementById("comp-sector").value,s=document.getElementById("comp-location").value,v=document.getElementById("comp-email").value,g=document.getElementById("comp-website").value;!l||!v||(m.insertRow("COMPANY",{company_name:l,sector:t,location:s,contact_email:v,website:g}),p.hide(),e())}}function u(r){const b=m.getTable("COMPANY").find(v=>v.company_id===r);if(!b)return;const p=document.getElementById("ctpmsModalTitle"),l=document.getElementById("ctpmsModalBody"),t=document.getElementById("ctpmsModalFooter");p.textContent=`Edit Company: ${b.company_name}`,l.innerHTML=`
       <form id="edit-company-form">
         <div class="mb-3">
           <label class="form-label text-xs fw-bold text-uppercase text-muted">Company Official Name</label>
-          <input type="text" id="edit-comp-name" class="form-control" value="${v.company_name}" required>
+          <input type="text" id="edit-comp-name" class="form-control" value="${b.company_name}" required>
         </div>
         <div class="mb-3">
           <label class="form-label text-xs fw-bold text-uppercase text-muted">Industry Sector</label>
-          <input type="text" id="edit-comp-sector" class="form-control" value="${v.sector}" required>
+          <input type="text" id="edit-comp-sector" class="form-control" value="${b.sector}" required>
         </div>
         <div class="mb-3">
           <label class="form-label text-xs fw-bold text-uppercase text-muted">Location</label>
-          <input type="text" id="edit-comp-location" class="form-control" value="${v.location}" required>
+          <input type="text" id="edit-comp-location" class="form-control" value="${b.location}" required>
         </div>
         <div class="mb-3">
           <label class="form-label text-xs fw-bold text-uppercase text-muted">HR Contact Email</label>
-          <input type="email" id="edit-comp-email" class="form-control" value="${v.contact_email}" required>
+          <input type="email" id="edit-comp-email" class="form-control" value="${b.contact_email}" required>
         </div>
         <div class="mb-3">
           <label class="form-label text-xs fw-bold text-uppercase text-muted">Website</label>
-          <input type="url" id="edit-comp-website" class="form-control" value="${v.website}" required>
+          <input type="url" id="edit-comp-website" class="form-control" value="${b.website}" required>
         </div>
       </form>
-    `,e.innerHTML=`
+    `,t.innerHTML=`
       <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
       <button type="button" class="btn btn-primary rounded-pill px-4" id="save-edit-company">Save Changes</button>
-    `;const s=new bootstrap.Modal(document.getElementById("ctpmsModal"));s.show(),document.getElementById("save-edit-company").onclick=()=>{const b=document.getElementById("edit-comp-name").value,f=document.getElementById("edit-comp-sector").value,g=document.getElementById("edit-comp-location").value,x=document.getElementById("edit-comp-email").value,w=document.getElementById("edit-comp-website").value;p.updateRow("COMPANY",r,{company_name:b,sector:f,location:g,contact_email:x,website:w}),s.hide(),t()}}}function V(n,a){const d=p.getStudentFullProfiles(),i=p.getJobPostingsDetailed(),t=d.find(u=>u.student_id===n),o=i.find(u=>u.job_id===a);if(!t)return{eligible:!1,reason:"Student profile not found."};if(!o)return{eligible:!1,reason:"Job drive not found."};if(o.status!=="Open")return{eligible:!1,reason:`Job drive is currently ${o.status.toLowerCase()}.`};if(t.placement_status==="Placed")return{eligible:!1,reason:"You have already accepted a final placement offer and are ineligible for further drives."};if(t.placement_status==="Opted Out")return{eligible:!1,reason:"Your status is currently set to Opted Out."};if(t.cgpa<o.min_cgpa)return{eligible:!1,reason:`Your CGPA (${t.cgpa.toFixed(2)}) is below the required threshold of ${o.min_cgpa.toFixed(2)}.`};if(o.eligible_branches){const u=o.eligible_branches.split(",").map(h=>h.trim().toLowerCase()),c=t.branch.trim().toLowerCase();if(!u.some(h=>c.includes(h)||h.includes(c)))return{eligible:!1,reason:`Your branch (${t.branch}) is not eligible for this drive. Eligible branches: ${o.eligible_branches}.`}}return{eligible:!0,reason:"Eligible to apply."}}function Y(n,a){var h;const d=y.getCurrentUser(),i=d.role_id===1||d.role_id===2||d.role_id===4,t=d.role_id===3,o=t?p.getTable("STUDENT").find(v=>v.user_id===d.user_id):null,u=t&&o?p.getTable("APPLICATION").filter(v=>v.student_id===o.student_id):[];function c(){const v=p.getJobPostingsDetailed(),m=n.querySelector("#jobs-grid");m&&(m.innerHTML=v.map(l=>{let e=null,s=!1;return t&&o&&(s=u.some(b=>b.job_id===l.job_id),e=V(o.student_id,l.job_id)),`
+    `;const s=new bootstrap.Modal(document.getElementById("ctpmsModal"));s.show(),document.getElementById("save-edit-company").onclick=()=>{const v=document.getElementById("edit-comp-name").value,g=document.getElementById("edit-comp-sector").value,f=document.getElementById("edit-comp-location").value,x=document.getElementById("edit-comp-email").value,w=document.getElementById("edit-comp-website").value;m.updateRow("COMPANY",r,{company_name:v,sector:g,location:f,contact_email:x,website:w}),s.hide(),e()}}}function V(o,a){const d=m.getStudentFullProfiles(),i=m.getJobPostingsDetailed(),e=d.find(u=>u.student_id===o),n=i.find(u=>u.job_id===a);if(!e)return{eligible:!1,reason:"Student profile not found."};if(!n)return{eligible:!1,reason:"Job drive not found."};if(n.status!=="Open")return{eligible:!1,reason:`Job drive is currently ${n.status.toLowerCase()}.`};if(e.placement_status==="Placed")return{eligible:!1,reason:"You have already accepted a final placement offer and are ineligible for further drives."};if(e.placement_status==="Opted Out")return{eligible:!1,reason:"Your status is currently set to Opted Out."};if(e.cgpa<n.min_cgpa)return{eligible:!1,reason:`Your CGPA (${e.cgpa.toFixed(2)}) is below the required threshold of ${n.min_cgpa.toFixed(2)}.`};if(n.eligible_branches){const u=n.eligible_branches.split(",").map(h=>h.trim().toLowerCase()),c=e.branch.trim().toLowerCase();if(!u.some(h=>c.includes(h)||h.includes(c)))return{eligible:!1,reason:`Your branch (${e.branch}) is not eligible for this drive. Eligible branches: ${n.eligible_branches}.`}}return{eligible:!0,reason:"Eligible to apply."}}function Y(o,a){var h;const d=y.getCurrentUser(),i=d.role_id===1||d.role_id===2||d.role_id===4,e=d.role_id===3,n=e?m.getTable("STUDENT").find(b=>b.user_id===d.user_id):null,u=e&&n?m.getTable("APPLICATION").filter(b=>b.student_id===n.student_id):[];function c(){const b=m.getJobPostingsDetailed(),p=o.querySelector("#jobs-grid");p&&(p.innerHTML=b.map(l=>{let t=null,s=!1;return e&&n&&(s=u.some(v=>v.job_id===l.job_id),t=V(n.student_id,l.job_id)),`
         <div class="col-md-6 col-xl-4">
           <div class="card border-0 shadow-sm rounded-4 h-100 p-4 bg-white position-relative">
             <div class="d-flex justify-content-between align-items-start mb-3">
@@ -681,7 +681,7 @@ import{initializeApp as L}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
             <div class="bg-light p-2.5 rounded-3 mb-3 text-xs">
               <div class="d-flex justify-content-between mb-1">
                 <span class="text-muted"><i class="bi bi-mortarboard me-1"></i>Min CGPA Required:</span>
-                <span class="fw-bold ${o&&o.cgpa>=l.min_cgpa?"text-success":"text-dark"}">${l.min_cgpa.toFixed(2)}</span>
+                <span class="fw-bold ${n&&n.cgpa>=l.min_cgpa?"text-success":"text-dark"}">${l.min_cgpa.toFixed(2)}</span>
               </div>
               <div class="d-flex justify-content-between">
                 <span class="text-muted"><i class="bi bi-layers me-1"></i>Eligible Branches:</span>
@@ -696,7 +696,7 @@ import{initializeApp as L}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
               </div>
               
               <div>
-                ${t?`
+                ${e?`
                   ${s?`
                     <span class="badge bg-success-subtle text-success rounded-pill px-3 py-2 fw-semibold">
                       <i class="bi bi-check-circle-fill me-1"></i> Applied
@@ -704,7 +704,7 @@ import{initializeApp as L}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
                   `:`
                     <button class="btn btn-sm btn-primary rounded-pill px-3 apply-job-btn" 
                       data-id="${l.job_id}" 
-                      ${e!=null&&e.eligible?"":`disabled title="${e==null?void 0:e.reason}"`}>
+                      ${t!=null&&t.eligible?"":`disabled title="${t==null?void 0:t.reason}"`}>
                       Apply Now
                     </button>
                   `}
@@ -721,12 +721,12 @@ import{initializeApp as L}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
               </div>
             </div>
 
-            ${t&&!s&&!(e!=null&&e.eligible)?`
-              <small class="text-danger text-xs mt-2 d-block"><i class="bi bi-exclamation-triangle-fill me-1"></i>${e==null?void 0:e.reason}</small>
+            ${e&&!s&&!(t!=null&&t.eligible)?`
+              <small class="text-danger text-xs mt-2 d-block"><i class="bi bi-exclamation-triangle-fill me-1"></i>${t==null?void 0:t.reason}</small>
             `:""}
           </div>
         </div>
-      `}).join(""),n.querySelectorAll(".apply-job-btn").forEach(l=>{l.addEventListener("click",()=>{const e=parseInt(l.getAttribute("data-id"));o&&(p.insertRow("APPLICATION",{student_id:o.student_id,job_id:e,applied_date:new Date().toISOString().replace("T"," ").substring(0,19),status:"Applied"}),alert("Application submitted successfully!"),c())})}),n.querySelectorAll(".close-drive-btn").forEach(l=>{l.addEventListener("click",()=>{const e=parseInt(l.getAttribute("data-id"));p.updateRow("JOB_POSTING",e,{status:"Closed"}),c()})}),n.querySelectorAll(".open-drive-btn").forEach(l=>{l.addEventListener("click",()=>{const e=parseInt(l.getAttribute("data-id"));p.updateRow("JOB_POSTING",e,{status:"Open"}),c()})}),n.querySelectorAll(".view-apps-btn").forEach(l=>{l.addEventListener("click",()=>{a("applications")})}))}n.innerHTML=`
+      `}).join(""),o.querySelectorAll(".apply-job-btn").forEach(l=>{l.addEventListener("click",()=>{const t=parseInt(l.getAttribute("data-id"));n&&(m.insertRow("APPLICATION",{student_id:n.student_id,job_id:t,applied_date:new Date().toISOString().replace("T"," ").substring(0,19),status:"Applied"}),alert("Application submitted successfully!"),c())})}),o.querySelectorAll(".close-drive-btn").forEach(l=>{l.addEventListener("click",()=>{const t=parseInt(l.getAttribute("data-id"));m.updateRow("JOB_POSTING",t,{status:"Closed"}),c()})}),o.querySelectorAll(".open-drive-btn").forEach(l=>{l.addEventListener("click",()=>{const t=parseInt(l.getAttribute("data-id"));m.updateRow("JOB_POSTING",t,{status:"Open"}),c()})}),o.querySelectorAll(".view-apps-btn").forEach(l=>{l.addEventListener("click",()=>{a("applications")})}))}o.innerHTML=`
     <div class="fade-in">
       <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
@@ -744,12 +744,12 @@ import{initializeApp as L}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
         <!-- Populated dynamically -->
       </div>
     </div>
-  `,c(),i&&((h=n.querySelector("#post-drive-btn"))==null||h.addEventListener("click",()=>{r()}));function r(){const v=p.getTable("COMPANY"),m=document.getElementById("ctpmsModalTitle"),l=document.getElementById("ctpmsModalBody"),e=document.getElementById("ctpmsModalFooter");m.textContent="Post New Campus Job Drive",l.innerHTML=`
+  `,c(),i&&((h=o.querySelector("#post-drive-btn"))==null||h.addEventListener("click",()=>{r()}));function r(){const b=m.getTable("COMPANY"),p=document.getElementById("ctpmsModalTitle"),l=document.getElementById("ctpmsModalBody"),t=document.getElementById("ctpmsModalFooter");p.textContent="Post New Campus Job Drive",l.innerHTML=`
       <form id="post-drive-form">
         <div class="mb-3">
           <label class="form-label text-xs fw-bold text-uppercase text-muted">Select Company</label>
           <select id="drive-company" class="form-select" required>
-            ${v.map(b=>`<option value="${b.company_id}">${b.company_name} (${b.sector})</option>`).join("")}
+            ${b.map(v=>`<option value="${v.company_id}">${v.company_name} (${v.sector})</option>`).join("")}
           </select>
         </div>
         <div class="mb-3">
@@ -779,10 +779,10 @@ import{initializeApp as L}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
           <textarea id="drive-desc" class="form-control" rows="3" placeholder="Specify technical skills, interview rounds, and job requirements..." required></textarea>
         </div>
       </form>
-    `,e.innerHTML=`
+    `,t.innerHTML=`
       <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
       <button type="button" class="btn btn-primary rounded-pill px-4" id="save-new-drive">Publish Job Drive</button>
-    `;const s=new bootstrap.Modal(document.getElementById("ctpmsModal"));s.show(),document.getElementById("save-new-drive").onclick=()=>{const b=parseInt(document.getElementById("drive-company").value),f=document.getElementById("drive-title").value,g=parseFloat(document.getElementById("drive-cgpa").value),x=parseFloat(document.getElementById("drive-ctc").value),w=document.getElementById("drive-branches").value,_=document.getElementById("drive-deadline").value,C=document.getElementById("drive-desc").value;!f||!C||(p.insertRow("JOB_POSTING",{company_id:b,job_title:f,description:C,min_cgpa:g,eligible_branches:w,ctc:x,deadline:_,status:"Open"}),s.hide(),c())}}}function W(n,a){const d=y.getCurrentUser(),i=d.role_id===3,t=d.role_id===1||d.role_id===2||d.role_id===4,o=i?p.getTable("STUDENT").find(c=>c.user_id===d.user_id):null;function u(){var l,e;let c=p.getApplicationsDetailed();i&&o&&(c=c.filter(s=>s.student_id===o.student_id));const r=((l=n.querySelector("#filter-app-status"))==null?void 0:l.value)||"",h=((e=n.querySelector("#search-app"))==null?void 0:e.value.toLowerCase())||"",v=c.filter(s=>{const b=!r||s.status===r,f=!h||s.student_name.toLowerCase().includes(h)||s.job_title.toLowerCase().includes(h)||s.company_name.toLowerCase().includes(h);return b&&f}),m=n.querySelector("#applications-tbody");if(m){if(v.length===0){m.innerHTML='<tr><td colspan="7" class="text-center py-4 text-muted">No drive applications found matching your criteria.</td></tr>';return}m.innerHTML=v.map(s=>`
+    `;const s=new bootstrap.Modal(document.getElementById("ctpmsModal"));s.show(),document.getElementById("save-new-drive").onclick=()=>{const v=parseInt(document.getElementById("drive-company").value),g=document.getElementById("drive-title").value,f=parseFloat(document.getElementById("drive-cgpa").value),x=parseFloat(document.getElementById("drive-ctc").value),w=document.getElementById("drive-branches").value,_=document.getElementById("drive-deadline").value,C=document.getElementById("drive-desc").value;!g||!C||(m.insertRow("JOB_POSTING",{company_id:v,job_title:g,description:C,min_cgpa:f,eligible_branches:w,ctc:x,deadline:_,status:"Open"}),s.hide(),c())}}}function W(o,a){const d=y.getCurrentUser(),i=d.role_id===3,e=d.role_id===1||d.role_id===2||d.role_id===4,n=i?m.getTable("STUDENT").find(c=>c.user_id===d.user_id):null;function u(){var l,t;let c=m.getApplicationsDetailed();i&&n&&(c=c.filter(s=>s.student_id===n.student_id));const r=((l=o.querySelector("#filter-app-status"))==null?void 0:l.value)||"",h=((t=o.querySelector("#search-app"))==null?void 0:t.value.toLowerCase())||"",b=c.filter(s=>{const v=!r||s.status===r,g=!h||s.student_name.toLowerCase().includes(h)||s.job_title.toLowerCase().includes(h)||s.company_name.toLowerCase().includes(h);return v&&g}),p=o.querySelector("#applications-tbody");if(p){if(b.length===0){p.innerHTML='<tr><td colspan="7" class="text-center py-4 text-muted">No drive applications found matching your criteria.</td></tr>';return}p.innerHTML=b.map(s=>`
       <tr>
         <td>
           <div class="fw-bold text-dark">${s.student_name}</div>
@@ -805,7 +805,7 @@ import{initializeApp as L}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
           `:'<span class="text-muted text-xs">No rounds yet</span>'}
         </td>
         <td>
-          ${t?`
+          ${e?`
             <div class="dropdown">
               <button class="btn btn-xs btn-outline-secondary rounded-pill dropdown-toggle" data-bs-toggle="dropdown">
                 Update Status
@@ -822,7 +822,7 @@ import{initializeApp as L}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
           `}
         </td>
       </tr>
-    `).join(""),n.querySelectorAll(".update-status-btn").forEach(s=>{s.addEventListener("click",b=>{b.preventDefault();const f=parseInt(s.getAttribute("data-id")),g=s.getAttribute("data-status");if(p.updateRow("APPLICATION",f,{status:g}),g==="Selected"&&t){const x=p.getApplicationsDetailed().find(w=>w.application_id===f);confirm(`Student ${x.student_name} is marked Selected! Would you like to create a Final Placement Record now?`)&&a("placements")}u()})})}}n.innerHTML=`
+    `).join(""),o.querySelectorAll(".update-status-btn").forEach(s=>{s.addEventListener("click",v=>{v.preventDefault();const g=parseInt(s.getAttribute("data-id")),f=s.getAttribute("data-status");if(m.updateRow("APPLICATION",g,{status:f}),f==="Selected"&&e){const x=m.getApplicationsDetailed().find(w=>w.application_id===g);confirm(`Student ${x.student_name} is marked Selected! Would you like to create a Final Placement Record now?`)&&a("placements")}u()})})}}o.innerHTML=`
     <div class="fade-in">
       <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
@@ -870,36 +870,36 @@ import{initializeApp as L}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
         </div>
       </div>
     </div>
-  `,n.querySelector("#search-app").addEventListener("input",u),n.querySelector("#filter-app-status").addEventListener("change",u),u()}function Q(n){var r;const a=y.getCurrentUser(),d=a.role_id===1||a.role_id===2||a.role_id===4,i=a.role_id===3,t=i?p.getTable("STUDENT").find(h=>h.user_id===a.user_id):null;function o(){const h=p.getTable("INTERVIEW"),v=p.getApplicationsDetailed();let m=h.map(e=>{const s=v.find(b=>b.application_id===e.application_id)||{};return{...e,student_name:s.student_name||"N/A",student_id:s.student_id,roll_number:s.roll_number||"",job_title:s.job_title||"N/A",company_name:s.company_name||"N/A"}});i&&t&&(m=m.filter(e=>e.student_id===t.student_id));const l=n.querySelector("#interviews-tbody");if(l){if(m.length===0){l.innerHTML='<tr><td colspan="7" class="text-center py-4 text-muted">No scheduled interview rounds found.</td></tr>';return}l.innerHTML=m.map(e=>`
+  `,o.querySelector("#search-app").addEventListener("input",u),o.querySelector("#filter-app-status").addEventListener("change",u),u()}function Q(o){var r;const a=y.getCurrentUser(),d=a.role_id===1||a.role_id===2||a.role_id===4,i=a.role_id===3,e=i?m.getTable("STUDENT").find(h=>h.user_id===a.user_id):null;function n(){const h=m.getTable("INTERVIEW"),b=m.getApplicationsDetailed();let p=h.map(t=>{const s=b.find(v=>v.application_id===t.application_id)||{};return{...t,student_name:s.student_name||"N/A",student_id:s.student_id,roll_number:s.roll_number||"",job_title:s.job_title||"N/A",company_name:s.company_name||"N/A"}});i&&e&&(p=p.filter(t=>t.student_id===e.student_id));const l=o.querySelector("#interviews-tbody");if(l){if(p.length===0){l.innerHTML='<tr><td colspan="7" class="text-center py-4 text-muted">No scheduled interview rounds found.</td></tr>';return}l.innerHTML=p.map(t=>`
       <tr>
         <td>
-          <span class="badge bg-primary text-white rounded-circle me-2 px-2.5 py-1">R${e.round_number}</span>
-          <span class="fw-bold text-dark">${e.round_type}</span>
+          <span class="badge bg-primary text-white rounded-circle me-2 px-2.5 py-1">R${t.round_number}</span>
+          <span class="fw-bold text-dark">${t.round_type}</span>
         </td>
         <td>
-          <div class="fw-bold text-dark">${e.student_name}</div>
-          <small class="text-muted">${e.roll_number}</small>
+          <div class="fw-bold text-dark">${t.student_name}</div>
+          <small class="text-muted">${t.roll_number}</small>
         </td>
         <td>
-          <div class="fw-semibold text-dark text-sm">${e.job_title}</div>
-          <small class="text-muted">${e.company_name}</small>
+          <div class="fw-semibold text-dark text-sm">${t.job_title}</div>
+          <small class="text-muted">${t.company_name}</small>
         </td>
-        <td class="text-muted text-sm fw-semibold"><i class="bi bi-calendar-event me-1 text-primary"></i>${e.scheduled_date}</td>
-        <td class="text-muted text-sm"><i class="bi bi-geo-alt me-1 text-danger"></i>${e.venue}</td>
+        <td class="text-muted text-sm fw-semibold"><i class="bi bi-calendar-event me-1 text-primary"></i>${t.scheduled_date}</td>
+        <td class="text-muted text-sm"><i class="bi bi-geo-alt me-1 text-danger"></i>${t.venue}</td>
         <td>
-          <span class="badge bg-${e.result==="Pass"?"success":e.result==="Fail"?"danger":"warning"}-subtle text-${e.result==="Pass"?"success":e.result==="Fail"?"danger":"warning"} rounded-pill">
-            ${e.result}
+          <span class="badge bg-${t.result==="Pass"?"success":t.result==="Fail"?"danger":"warning"}-subtle text-${t.result==="Pass"?"success":t.result==="Fail"?"danger":"warning"} rounded-pill">
+            ${t.result}
           </span>
         </td>
         <td>
           ${d?`
-            <button class="btn btn-xs btn-outline-primary rounded-pill update-result-btn me-1" data-id="${e.interview_id}">Result</button>
+            <button class="btn btn-xs btn-outline-primary rounded-pill update-result-btn me-1" data-id="${t.interview_id}">Result</button>
           `:`
             <span class="text-muted text-xs">Scheduled</span>
           `}
         </td>
       </tr>
-    `).join(""),n.querySelectorAll(".update-result-btn").forEach(e=>{e.addEventListener("click",()=>{const s=parseInt(e.getAttribute("data-id"));c(s)})})}}n.innerHTML=`
+    `).join(""),o.querySelectorAll(".update-result-btn").forEach(t=>{t.addEventListener("click",()=>{const s=parseInt(t.getAttribute("data-id"));c(s)})})}}o.innerHTML=`
     <div class="fade-in">
       <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
@@ -934,7 +934,7 @@ import{initializeApp as L}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
         </div>
       </div>
     </div>
-  `,o(),d&&((r=n.querySelector("#schedule-interview-btn"))==null||r.addEventListener("click",()=>{u()}));function u(){const h=p.getApplicationsDetailed().filter(s=>s.status==="Shortlisted"||s.status==="Applied"),v=document.getElementById("ctpmsModalTitle"),m=document.getElementById("ctpmsModalBody"),l=document.getElementById("ctpmsModalFooter");v.textContent="Schedule Interview Round",m.innerHTML=`
+  `,n(),d&&((r=o.querySelector("#schedule-interview-btn"))==null||r.addEventListener("click",()=>{u()}));function u(){const h=m.getApplicationsDetailed().filter(s=>s.status==="Shortlisted"||s.status==="Applied"),b=document.getElementById("ctpmsModalTitle"),p=document.getElementById("ctpmsModalBody"),l=document.getElementById("ctpmsModalFooter");b.textContent="Schedule Interview Round",p.innerHTML=`
       <form id="schedule-form">
         <div class="mb-3">
           <label class="form-label text-xs fw-bold text-uppercase text-muted">Select Shortlisted Candidate & Drive</label>
@@ -970,21 +970,21 @@ import{initializeApp as L}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
     `,l.innerHTML=`
       <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
       <button type="button" class="btn btn-primary rounded-pill px-4" id="save-new-interview">Confirm Schedule</button>
-    `;const e=new bootstrap.Modal(document.getElementById("ctpmsModal"));e.show(),document.getElementById("save-new-interview").onclick=()=>{const s=parseInt(document.getElementById("int-app-id").value),b=parseInt(document.getElementById("int-round-num").value),f=document.getElementById("int-round-type").value,g=document.getElementById("int-date").value.replace("T"," "),x=document.getElementById("int-venue").value;!s||!x||(p.insertRow("INTERVIEW",{application_id:s,round_number:b,round_type:f,scheduled_date:g,venue:x,result:"Pending"}),e.hide(),o())}}function c(h){const v=p.getTable("INTERVIEW").find(b=>b.interview_id===h);if(!v)return;const m=document.getElementById("ctpmsModalTitle"),l=document.getElementById("ctpmsModalBody"),e=document.getElementById("ctpmsModalFooter");m.textContent=`Update Round ${v.round_number} Result`,l.innerHTML=`
+    `;const t=new bootstrap.Modal(document.getElementById("ctpmsModal"));t.show(),document.getElementById("save-new-interview").onclick=()=>{const s=parseInt(document.getElementById("int-app-id").value),v=parseInt(document.getElementById("int-round-num").value),g=document.getElementById("int-round-type").value,f=document.getElementById("int-date").value.replace("T"," "),x=document.getElementById("int-venue").value;!s||!x||(m.insertRow("INTERVIEW",{application_id:s,round_number:v,round_type:g,scheduled_date:f,venue:x,result:"Pending"}),t.hide(),n())}}function c(h){const b=m.getTable("INTERVIEW").find(v=>v.interview_id===h);if(!b)return;const p=document.getElementById("ctpmsModalTitle"),l=document.getElementById("ctpmsModalBody"),t=document.getElementById("ctpmsModalFooter");p.textContent=`Update Round ${b.round_number} Result`,l.innerHTML=`
       <form id="update-result-form">
         <div class="mb-3">
           <label class="form-label text-xs fw-bold text-uppercase text-muted">Evaluation Result</label>
           <select id="int-result" class="form-select" required>
-            <option value="Pending" ${v.result==="Pending"?"selected":""}>Pending</option>
-            <option value="Pass" ${v.result==="Pass"?"selected":""}>Pass (Cleared Round)</option>
-            <option value="Fail" ${v.result==="Fail"?"selected":""}>Fail (Did Not Clear)</option>
+            <option value="Pending" ${b.result==="Pending"?"selected":""}>Pending</option>
+            <option value="Pass" ${b.result==="Pass"?"selected":""}>Pass (Cleared Round)</option>
+            <option value="Fail" ${b.result==="Fail"?"selected":""}>Fail (Did Not Clear)</option>
           </select>
         </div>
       </form>
-    `,e.innerHTML=`
+    `,t.innerHTML=`
       <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
       <button type="button" class="btn btn-primary rounded-pill px-4" id="save-int-result">Save Result</button>
-    `;const s=new bootstrap.Modal(document.getElementById("ctpmsModal"));s.show(),document.getElementById("save-int-result").onclick=()=>{const b=document.getElementById("int-result").value;p.updateRow("INTERVIEW",h,{result:b}),s.hide(),o()}}}function K(n){var h;const a=y.getCurrentUser(),d=a.role_id===1||a.role_id===2,i=a.role_id===3,t=i?p.getTable("STUDENT").find(v=>v.user_id===a.user_id):null;function o(){const v=p.getTable("TRAINING"),m=n.querySelector("#trainings-grid");m&&(m.innerHTML=v.map(l=>{const e=t&&(l.attendance||[]).includes(t.student_id),s=t&&(l.completed_students||[]).includes(t.student_id);return`
+    `;const s=new bootstrap.Modal(document.getElementById("ctpmsModal"));s.show(),document.getElementById("save-int-result").onclick=()=>{const v=document.getElementById("int-result").value;m.updateRow("INTERVIEW",h,{result:v}),s.hide(),n()}}}function K(o){var h;const a=y.getCurrentUser(),d=a.role_id===1||a.role_id===2,i=a.role_id===3,e=i?m.getTable("STUDENT").find(b=>b.user_id===a.user_id):null;function n(){const b=m.getTable("TRAINING"),p=o.querySelector("#trainings-grid");p&&(p.innerHTML=b.map(l=>{const t=e&&(l.attendance||[]).includes(e.student_id),s=e&&(l.completed_students||[]).includes(e.student_id);return`
         <div class="col-md-6 col-lg-6">
           <div class="card border-0 shadow-sm rounded-4 h-100 p-4 bg-white">
             <div class="d-flex justify-content-between align-items-start mb-2">
@@ -1003,10 +1003,10 @@ import{initializeApp as L}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
               <div>
                 ${i?`
                   ${s?`
-                    <button class="btn btn-sm btn-success rounded-pill px-3 download-cert-btn" data-title="${l.title}" data-student="${t.name}">
+                    <button class="btn btn-sm btn-success rounded-pill px-3 download-cert-btn" data-title="${l.title}" data-student="${e.name}">
                       <i class="bi bi-award-fill me-1"></i> Download Certificate
                     </button>
-                  `:e?`
+                  `:t?`
                     <span class="badge bg-primary-subtle text-primary rounded-pill px-3 py-2">
                       <i class="bi bi-check-circle me-1"></i> Enrolled
                     </span>
@@ -1029,9 +1029,9 @@ import{initializeApp as L}from"https://www.gstatic.com/firebasejs/10.8.0/firebas
             </div>
           </div>
         </div>
-      `}).join(""),n.querySelectorAll(".enroll-btn").forEach(l=>{l.addEventListener("click",()=>{const e=parseInt(l.getAttribute("data-id")),s=v.find(b=>b.training_id===e);s&&t&&(s.attendance||(s.attendance=[]),s.attendance.includes(t.student_id)||(s.attendance.push(t.student_id),p.updateRow("TRAINING",e,{attendance:s.attendance}),alert("Successfully enrolled in training program!"),o()))})}),n.querySelectorAll(".download-cert-btn").forEach(l=>{l.addEventListener("click",()=>{const e=l.getAttribute("data-title"),s=l.getAttribute("data-student");alert(`Simulated Certificate Downloaded for ${s}
-Program: ${e}
-Issued by TRCAC Placement Cell`)})}),n.querySelectorAll(".manage-attendance-btn").forEach(l=>{l.addEventListener("click",()=>{const e=parseInt(l.getAttribute("data-id"));c(e)})}),n.querySelectorAll(".issue-cert-btn").forEach(l=>{l.addEventListener("click",()=>{const e=parseInt(l.getAttribute("data-id"));r(e)})}))}n.innerHTML=`
+      `}).join(""),o.querySelectorAll(".enroll-btn").forEach(l=>{l.addEventListener("click",()=>{const t=parseInt(l.getAttribute("data-id")),s=b.find(v=>v.training_id===t);s&&e&&(s.attendance||(s.attendance=[]),s.attendance.includes(e.student_id)||(s.attendance.push(e.student_id),m.updateRow("TRAINING",t,{attendance:s.attendance}),alert("Successfully enrolled in training program!"),n()))})}),o.querySelectorAll(".download-cert-btn").forEach(l=>{l.addEventListener("click",()=>{const t=l.getAttribute("data-title"),s=l.getAttribute("data-student");alert(`Simulated Certificate Downloaded for ${s}
+Program: ${t}
+Issued by TRCAC Placement Cell`)})}),o.querySelectorAll(".manage-attendance-btn").forEach(l=>{l.addEventListener("click",()=>{const t=parseInt(l.getAttribute("data-id"));c(t)})}),o.querySelectorAll(".issue-cert-btn").forEach(l=>{l.addEventListener("click",()=>{const t=parseInt(l.getAttribute("data-id"));r(t)})}))}o.innerHTML=`
     <div class="fade-in">
       <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
@@ -1049,7 +1049,7 @@ Issued by TRCAC Placement Cell`)})}),n.querySelectorAll(".manage-attendance-btn"
         <!-- Populated dynamically -->
       </div>
     </div>
-  `,o(),d&&((h=n.querySelector("#add-training-btn"))==null||h.addEventListener("click",()=>{u()}));function u(){const v=document.getElementById("ctpmsModalTitle"),m=document.getElementById("ctpmsModalBody"),l=document.getElementById("ctpmsModalFooter");v.textContent="Create Skill Training Program",m.innerHTML=`
+  `,n(),d&&((h=o.querySelector("#add-training-btn"))==null||h.addEventListener("click",()=>{u()}));function u(){const b=document.getElementById("ctpmsModalTitle"),p=document.getElementById("ctpmsModalBody"),l=document.getElementById("ctpmsModalFooter");b.textContent="Create Skill Training Program",p.innerHTML=`
       <form id="add-training-form">
         <div class="mb-3">
           <label class="form-label text-xs fw-bold text-uppercase text-muted">Program Title</label>
@@ -1077,7 +1077,7 @@ Issued by TRCAC Placement Cell`)})}),n.querySelectorAll(".manage-attendance-btn"
     `,l.innerHTML=`
       <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
       <button type="button" class="btn btn-primary rounded-pill px-4" id="save-new-training">Publish Training</button>
-    `;const e=new bootstrap.Modal(document.getElementById("ctpmsModal"));e.show(),document.getElementById("save-new-training").onclick=()=>{const s=document.getElementById("tr-title").value,b=document.getElementById("tr-trainer").value,f=document.getElementById("tr-start").value,g=document.getElementById("tr-end").value,x=document.getElementById("tr-desc").value;!s||!b||(p.insertRow("TRAINING",{title:s,trainer_name:b,start_date:f,end_date:g,description:x,attendance:[],completed_students:[]}),e.hide(),o())}}function c(v){const m=p.getTable("TRAINING").find(g=>g.training_id===v),l=p.getStudentFullProfiles();if(!m)return;const e=document.getElementById("ctpmsModalTitle"),s=document.getElementById("ctpmsModalBody"),b=document.getElementById("ctpmsModalFooter");e.textContent=`Attendance List: ${m.title}`,s.innerHTML=`
+    `;const t=new bootstrap.Modal(document.getElementById("ctpmsModal"));t.show(),document.getElementById("save-new-training").onclick=()=>{const s=document.getElementById("tr-title").value,v=document.getElementById("tr-trainer").value,g=document.getElementById("tr-start").value,f=document.getElementById("tr-end").value,x=document.getElementById("tr-desc").value;!s||!v||(m.insertRow("TRAINING",{title:s,trainer_name:v,start_date:g,end_date:f,description:x,attendance:[],completed_students:[]}),t.hide(),n())}}function c(b){const p=m.getTable("TRAINING").find(f=>f.training_id===b),l=m.getStudentFullProfiles();if(!p)return;const t=document.getElementById("ctpmsModalTitle"),s=document.getElementById("ctpmsModalBody"),v=document.getElementById("ctpmsModalFooter");t.textContent=`Attendance List: ${p.title}`,s.innerHTML=`
       <div class="table-responsive">
         <table class="table table-sm table-hover align-middle">
           <thead>
@@ -1088,22 +1088,22 @@ Issued by TRCAC Placement Cell`)})}),n.querySelectorAll(".manage-attendance-btn"
             </tr>
           </thead>
           <tbody>
-            ${l.map(g=>{const x=(m.attendance||[]).includes(g.student_id);return`
+            ${l.map(f=>{const x=(p.attendance||[]).includes(f.student_id);return`
                 <tr>
-                  <td>${g.name}</td>
-                  <td>${g.roll_number}</td>
+                  <td>${f.name}</td>
+                  <td>${f.roll_number}</td>
                   <td>
-                    <input type="checkbox" class="form-check-input att-check" data-sid="${g.student_id}" ${x?"checked":""}>
+                    <input type="checkbox" class="form-check-input att-check" data-sid="${f.student_id}" ${x?"checked":""}>
                   </td>
                 </tr>
               `}).join("")}
           </tbody>
         </table>
       </div>
-    `,b.innerHTML=`
+    `,v.innerHTML=`
       <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Close</button>
       <button type="button" class="btn btn-primary rounded-pill px-4" id="save-attendance">Save Attendance</button>
-    `;const f=new bootstrap.Modal(document.getElementById("ctpmsModal"));f.show(),document.getElementById("save-attendance").onclick=()=>{const g=document.querySelectorAll(".att-check"),x=[];g.forEach(w=>{w.checked&&x.push(parseInt(w.getAttribute("data-sid")))}),p.updateRow("TRAINING",v,{attendance:x}),f.hide(),o()}}function r(v){const m=p.getTable("TRAINING").find(g=>g.training_id===v),l=p.getStudentFullProfiles().filter(g=>(m.attendance||[]).includes(g.student_id));if(!m)return;const e=document.getElementById("ctpmsModalTitle"),s=document.getElementById("ctpmsModalBody"),b=document.getElementById("ctpmsModalFooter");e.textContent=`Issue Completion Certificates: ${m.title}`,s.innerHTML=`
+    `;const g=new bootstrap.Modal(document.getElementById("ctpmsModal"));g.show(),document.getElementById("save-attendance").onclick=()=>{const f=document.querySelectorAll(".att-check"),x=[];f.forEach(w=>{w.checked&&x.push(parseInt(w.getAttribute("data-sid")))}),m.updateRow("TRAINING",b,{attendance:x}),g.hide(),n()}}function r(b){const p=m.getTable("TRAINING").find(f=>f.training_id===b),l=m.getStudentFullProfiles().filter(f=>(p.attendance||[]).includes(f.student_id));if(!p)return;const t=document.getElementById("ctpmsModalTitle"),s=document.getElementById("ctpmsModalBody"),v=document.getElementById("ctpmsModalFooter");t.textContent=`Issue Completion Certificates: ${p.title}`,s.innerHTML=`
       <p class="text-muted text-xs">Select enrolled students who completed all attendance requirements to issue digital certificates:</p>
       <div class="table-responsive">
         <table class="table table-sm table-hover align-middle">
@@ -1115,22 +1115,22 @@ Issued by TRCAC Placement Cell`)})}),n.querySelectorAll(".manage-attendance-btn"
             </tr>
           </thead>
           <tbody>
-            ${l.length===0?'<tr><td colspan="3" class="text-center py-3 text-muted">No enrolled students in this training yet.</td></tr>':l.map(g=>{const x=(m.completed_students||[]).includes(g.student_id);return`
+            ${l.length===0?'<tr><td colspan="3" class="text-center py-3 text-muted">No enrolled students in this training yet.</td></tr>':l.map(f=>{const x=(p.completed_students||[]).includes(f.student_id);return`
                   <tr>
-                    <td>${g.name}</td>
-                    <td>${g.roll_number}</td>
+                    <td>${f.name}</td>
+                    <td>${f.roll_number}</td>
                     <td>
-                      <input type="checkbox" class="form-check-input cert-check" data-sid="${g.student_id}" ${x?"checked":""}>
+                      <input type="checkbox" class="form-check-input cert-check" data-sid="${f.student_id}" ${x?"checked":""}>
                     </td>
                   </tr>
                 `}).join("")}
           </tbody>
         </table>
       </div>
-    `,b.innerHTML=`
+    `,v.innerHTML=`
       <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Close</button>
       <button type="button" class="btn btn-success rounded-pill px-4" id="save-certs">Issue Certificates</button>
-    `;const f=new bootstrap.Modal(document.getElementById("ctpmsModal"));f.show(),document.getElementById("save-certs").onclick=()=>{const g=document.querySelectorAll(".cert-check"),x=[];g.forEach(w=>{w.checked&&x.push(parseInt(w.getAttribute("data-sid")))}),p.updateRow("TRAINING",v,{completed_students:x}),f.hide(),o()}}}function z(n){var o;const a=y.getCurrentUser(),d=a.role_id===1||a.role_id===2;function i(){const u=p.getTable("PLACEMENT_RECORD"),c=p.getStudentFullProfiles(),r=p.getTable("COMPANY"),h=p.getTable("JOB_POSTING"),v=u.map(l=>{const e=c.find(f=>f.student_id===l.student_id)||{},s=r.find(f=>f.company_id===l.company_id)||{},b=h.find(f=>f.job_id===l.job_id)||{};return{...l,student_name:e.name||"Unknown Student",roll_number:e.roll_number||"",branch:e.branch||"",company_name:s.company_name||"N/A",job_title:b.job_title||"N/A"}}),m=n.querySelector("#placements-tbody");if(m){if(v.length===0){m.innerHTML='<tr><td colspan="7" class="text-center py-4 text-muted">No placement records recorded yet.</td></tr>';return}m.innerHTML=v.map(l=>`
+    `;const g=new bootstrap.Modal(document.getElementById("ctpmsModal"));g.show(),document.getElementById("save-certs").onclick=()=>{const f=document.querySelectorAll(".cert-check"),x=[];f.forEach(w=>{w.checked&&x.push(parseInt(w.getAttribute("data-sid")))}),m.updateRow("TRAINING",b,{completed_students:x}),g.hide(),n()}}}function z(o){var n;const a=y.getCurrentUser(),d=a.role_id===1||a.role_id===2;function i(){const u=m.getTable("PLACEMENT_RECORD"),c=m.getStudentFullProfiles(),r=m.getTable("COMPANY"),h=m.getTable("JOB_POSTING"),b=u.map(l=>{const t=c.find(g=>g.student_id===l.student_id)||{},s=r.find(g=>g.company_id===l.company_id)||{},v=h.find(g=>g.job_id===l.job_id)||{};return{...l,student_name:t.name||"Unknown Student",roll_number:t.roll_number||"",branch:t.branch||"",company_name:s.company_name||"N/A",job_title:v.job_title||"N/A"}}),p=o.querySelector("#placements-tbody");if(p){if(b.length===0){p.innerHTML='<tr><td colspan="7" class="text-center py-4 text-muted">No placement records recorded yet.</td></tr>';return}p.innerHTML=b.map(l=>`
       <tr>
         <td>
           <div class="fw-bold text-dark">${l.student_name}</div>
@@ -1147,7 +1147,7 @@ Issued by TRCAC Placement Cell`)})}),n.querySelectorAll(".manage-attendance-btn"
           <span class="badge badge-status badge-placed"><i class="bi bi-check-circle-fill me-1"></i>Official Offer</span>
         </td>
       </tr>
-    `).join("")}}n.innerHTML=`
+    `).join("")}}o.innerHTML=`
     <div class="fade-in">
       <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
@@ -1181,24 +1181,24 @@ Issued by TRCAC Placement Cell`)})}),n.querySelectorAll(".manage-attendance-btn"
         </div>
       </div>
     </div>
-  `,i(),d&&((o=n.querySelector("#add-placement-btn"))==null||o.addEventListener("click",()=>{t()}));function t(){const u=p.getStudentFullProfiles().filter(e=>e.placement_status!=="Placed"),c=p.getTable("COMPANY"),r=p.getTable("JOB_POSTING"),h=document.getElementById("ctpmsModalTitle"),v=document.getElementById("ctpmsModalBody"),m=document.getElementById("ctpmsModalFooter");h.textContent="Record Final Student Placement Offer",v.innerHTML=`
+  `,i(),d&&((n=o.querySelector("#add-placement-btn"))==null||n.addEventListener("click",()=>{e()}));function e(){const u=m.getStudentFullProfiles().filter(t=>t.placement_status!=="Placed"),c=m.getTable("COMPANY"),r=m.getTable("JOB_POSTING"),h=document.getElementById("ctpmsModalTitle"),b=document.getElementById("ctpmsModalBody"),p=document.getElementById("ctpmsModalFooter");h.textContent="Record Final Student Placement Offer",b.innerHTML=`
       <form id="add-placement-form">
         <div class="mb-3">
           <label class="form-label text-xs fw-bold text-uppercase text-muted">Select Student Candidate</label>
           <select id="pl-student-id" class="form-select" required>
-            ${u.length===0?'<option value="">No unplaced students available</option>':u.map(e=>`<option value="${e.student_id}">${e.name} (${e.roll_number} • ${e.branch})</option>`).join("")}
+            ${u.length===0?'<option value="">No unplaced students available</option>':u.map(t=>`<option value="${t.student_id}">${t.name} (${t.roll_number} • ${t.branch})</option>`).join("")}
           </select>
         </div>
         <div class="mb-3">
           <label class="form-label text-xs fw-bold text-uppercase text-muted">Offering Company</label>
           <select id="pl-company-id" class="form-select" required>
-            ${c.map(e=>`<option value="${e.company_id}">${e.company_name}</option>`).join("")}
+            ${c.map(t=>`<option value="${t.company_id}">${t.company_name}</option>`).join("")}
           </select>
         </div>
         <div class="mb-3">
           <label class="form-label text-xs fw-bold text-uppercase text-muted">Associated Job Drive</label>
           <select id="pl-job-id" class="form-select" required>
-            ${r.map(e=>`<option value="${e.job_id}">${e.job_title} (${e.ctc} LPA)</option>`).join("")}
+            ${r.map(t=>`<option value="${t.job_id}">${t.job_title} (${t.ctc} LPA)</option>`).join("")}
           </select>
         </div>
         <div class="mb-3">
@@ -1216,15 +1216,15 @@ Issued by TRCAC Placement Cell`)})}),n.querySelectorAll(".manage-attendance-btn"
           </div>
         </div>
       </form>
-    `,m.innerHTML=`
+    `,p.innerHTML=`
       <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
       <button type="button" class="btn btn-success rounded-pill px-4" id="save-placement-record">Confirm Placement Offer</button>
-    `;const l=new bootstrap.Modal(document.getElementById("ctpmsModal"));l.show(),document.getElementById("save-placement-record").onclick=()=>{const e=parseInt(document.getElementById("pl-student-id").value),s=parseInt(document.getElementById("pl-company-id").value),b=parseInt(document.getElementById("pl-job-id").value),f=parseFloat(document.getElementById("pl-ctc").value),g=document.getElementById("pl-offer-date").value,x=document.getElementById("pl-joining-date").value;!e||!s||!b||(p.insertRow("PLACEMENT_RECORD",{student_id:e,company_id:s,job_id:b,ctc_offered:f,offer_date:g,joining_date:x}),p.updateRow("STUDENT",e,{placement_status:"Placed"}),l.hide(),i())}}}function Z(n){const a=y.getCurrentUser();if(!(a.role_id===1||a.role_id===2)){n.innerHTML=`
+    `;const l=new bootstrap.Modal(document.getElementById("ctpmsModal"));l.show(),document.getElementById("save-placement-record").onclick=()=>{const t=parseInt(document.getElementById("pl-student-id").value),s=parseInt(document.getElementById("pl-company-id").value),v=parseInt(document.getElementById("pl-job-id").value),g=parseFloat(document.getElementById("pl-ctc").value),f=document.getElementById("pl-offer-date").value,x=document.getElementById("pl-joining-date").value;!t||!s||!v||(m.insertRow("PLACEMENT_RECORD",{student_id:t,company_id:s,job_id:v,ctc_offered:g,offer_date:f,joining_date:x}),m.updateRow("STUDENT",t,{placement_status:"Placed"}),l.hide(),i())}}}function Z(o){const a=y.getCurrentUser();if(!(a.role_id===1||a.role_id===2)){o.innerHTML=`
       <div class="alert alert-danger rounded-3 p-4">
         <h5 class="fw-bold"><i class="bi bi-shield-lock-fill me-2"></i>Access Restricted</h5>
         <p class="mb-0">Placement analytics and CSV exports are restricted to TPO Officers and Administrators.</p>
       </div>
-    `;return}const i=p.getStudentFullProfiles(),t=p.getTable("PLACEMENT_RECORD"),o=p.getTable("COMPANY"),u=i.length,c=i.filter(s=>s.placement_status==="Placed"),r=i.filter(s=>s.placement_status==="Unplaced"),h=t.reduce((s,b)=>b.ctc_offered>s?b.ctc_offered:s,0),v=t.length>0?(t.reduce((s,b)=>s+b.ctc_offered,0)/t.length).toFixed(2):"0.00",l=["B.Sc. CS","B.Sc. IT","B.Sc. Data Science"].map(s=>{const b=i.filter(x=>x.branch===s),f=b.filter(x=>x.placement_status==="Placed"),g=b.length>0?(f.length/b.length*100).toFixed(1):"0.0";return{branch:s,total:b.length,placed:f.length,unplaced:b.length-f.length,rate:g}}),e=o.map(s=>{const b=t.filter(g=>g.company_id===s.company_id),f=b.reduce((g,x)=>x.ctc_offered>g?x.ctc_offered:g,0);return{company:s.company_name,hires:b.length,ctc:f>0?`${f.toFixed(2)} LPA`:"N/A"}});n.innerHTML=`
+    `;return}const i=m.getStudentFullProfiles(),e=m.getTable("PLACEMENT_RECORD"),n=m.getTable("COMPANY"),u=i.length,c=i.filter(s=>s.placement_status==="Placed"),r=i.filter(s=>s.placement_status==="Unplaced"),h=e.reduce((s,v)=>v.ctc_offered>s?v.ctc_offered:s,0),b=e.length>0?(e.reduce((s,v)=>s+v.ctc_offered,0)/e.length).toFixed(2):"0.00",l=["B.Sc. CS","B.Sc. IT","B.Sc. Data Science"].map(s=>{const v=i.filter(x=>x.branch===s),g=v.filter(x=>x.placement_status==="Placed"),f=v.length>0?(g.length/v.length*100).toFixed(1):"0.0";return{branch:s,total:v.length,placed:g.length,unplaced:v.length-g.length,rate:f}}),t=n.map(s=>{const v=e.filter(f=>f.company_id===s.company_id),g=v.reduce((f,x)=>x.ctc_offered>f?x.ctc_offered:f,0);return{company:s.company_name,hires:v.length,ctc:g>0?`${g.toFixed(2)} LPA`:"N/A"}});o.innerHTML=`
     <div class="fade-in">
       <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
@@ -1259,7 +1259,7 @@ Issued by TRCAC Placement Cell`)})}),n.querySelectorAll(".manage-attendance-btn"
         <div class="col-md-2.4 col-sm-6">
           <div class="card card-stat p-3">
             <small class="text-muted text-xs text-uppercase fw-bold">Average Package</small>
-            <h3 class="fw-bold text-primary mb-0 mt-1">${v} LPA</h3>
+            <h3 class="fw-bold text-primary mb-0 mt-1">${b} LPA</h3>
           </div>
         </div>
         <div class="col-md-2.4 col-sm-6">
@@ -1326,7 +1326,7 @@ Issued by TRCAC Placement Cell`)})}),n.querySelectorAll(".manage-attendance-btn"
                   </tr>
                 </thead>
                 <tbody>
-                  ${e.map(s=>`
+                  ${t.map(s=>`
                     <tr>
                       <td class="fw-semibold text-dark">${s.company}</td>
                       <td><span class="badge bg-primary-subtle text-primary rounded-pill">${s.hires} Offers</span></td>
@@ -1340,7 +1340,7 @@ Issued by TRCAC Placement Cell`)})}),n.querySelectorAll(".manage-attendance-btn"
         </div>
       </div>
     </div>
-  `,n.querySelector("#export-csv-btn").addEventListener("click",()=>{const s=i.map(b=>({"Roll Number":b.roll_number,"Student Name":b.name,"Degree Branch":b.branch,"CGPA Score":b.cgpa,"Email Contact":b.email,Skills:b.skills,"Placement Status":b.placement_status,"Company Placed":b.placement_details?b.placement_details.company_name:"N/A","CTC Offered (LPA)":b.placement_details?b.placement_details.ctc_offered:"N/A"}));if(window.Papa){const b=window.Papa.unparse(s),f=new Blob([b],{type:"text/csv;charset=utf-8;"}),g=document.createElement("a");g.href=URL.createObjectURL(f),g.setAttribute("download",`TRCAC_Placement_Report_${new Date().toISOString().substring(0,10)}.csv`),document.body.appendChild(g),g.click(),document.body.removeChild(g)}else alert("CSV export engine ready. Triggered export download.")})}function X(n){const a=y.getCurrentUser(),d=p.getTable("USER").find(o=>o.user_id===a.user_id)||{};n.innerHTML=`
+  `,o.querySelector("#export-csv-btn").addEventListener("click",()=>{const s=i.map(v=>({"Roll Number":v.roll_number,"Student Name":v.name,"Degree Branch":v.branch,"CGPA Score":v.cgpa,"Email Contact":v.email,Skills:v.skills,"Placement Status":v.placement_status,"Company Placed":v.placement_details?v.placement_details.company_name:"N/A","CTC Offered (LPA)":v.placement_details?v.placement_details.ctc_offered:"N/A"}));if(window.Papa){const v=window.Papa.unparse(s),g=new Blob([v],{type:"text/csv;charset=utf-8;"}),f=document.createElement("a");f.href=URL.createObjectURL(g),f.setAttribute("download",`TRCAC_Placement_Report_${new Date().toISOString().substring(0,10)}.csv`),document.body.appendChild(f),f.click(),document.body.removeChild(f)}else alert("CSV export engine ready. Triggered export download.")})}function X(o){const a=y.getCurrentUser(),d=m.getTable("USER").find(n=>n.user_id===a.user_id)||{};o.innerHTML=`
     <div class="fade-in max-w-700">
       <div class="mb-4">
         <h4 class="fw-bold text-navy mb-1">Profile & Account Settings</h4>
@@ -1390,12 +1390,12 @@ Issued by TRCAC Placement Cell`)})}),n.querySelectorAll(".manage-attendance-btn"
         </form>
       </div>
     </div>
-  `;const i=n.querySelector("#profile-alert");function t(o,u="success"){i.className=`alert alert-${u} rounded-3 text-xs mb-3 fade-in`,i.textContent=o,i.classList.remove("d-none"),setTimeout(()=>{i.classList.add("d-none")},4e3)}n.querySelector("#profile-info-form").addEventListener("submit",o=>{o.preventDefault();const u=n.querySelector("#prof-name").value;p.updateRow("USER",a.user_id,{name:u}),a.name=u,document.getElementById("user-name").textContent=u,t("Profile name updated successfully!","success")}),n.querySelector("#password-change-form").addEventListener("submit",o=>{o.preventDefault();const u=n.querySelector("#curr-pass").value,c=n.querySelector("#new-pass").value,r=n.querySelector("#confirm-pass").value;if(u!==d.password){t("Current password entered is incorrect.","danger");return}if(c!==r){t("New password and confirmation do not match.","danger");return}p.updateRow("USER",a.user_id,{password:c}),n.querySelector("#curr-pass").value="",n.querySelector("#new-pass").value="",n.querySelector("#confirm-pass").value="",t("Account password changed successfully!","success")})}const $=[{id:"dashboard",label:"Dashboard",icon:"bi-grid-1x2",roles:[1,2,3,4],render:B},{id:"users",label:"User Management",icon:"bi-shield-person",roles:[1],render:H},{id:"students",label:"Student Management",icon:"bi-mortarboard",roles:[1,2],render:G},{id:"companies",label:"Company Management",icon:"bi-building",roles:[1,2],render:J},{id:"jobs",label:"Job Postings",icon:"bi-briefcase",roles:[1,2,3,4],render:Y},{id:"applications",label:"Applications",icon:"bi-file-earmark-check",roles:[1,2,3,4],render:W},{id:"interviews",label:"Interview Schedule",icon:"bi-calendar-event",roles:[1,2,3,4],render:Q},{id:"trainings",label:"Training Programs",icon:"bi-award",roles:[1,2,3,4],render:K},{id:"placements",label:"Placement Records",icon:"bi-journal-check",roles:[1,2],render:z},{id:"reports",label:"Reports & Analytics",icon:"bi-bar-chart-line",roles:[1,2],render:Z},{id:"profile",label:"Profile & Settings",icon:"bi-person-gear",roles:[1,2,3,4],render:X}];class ee{constructor(){this.loginContainer=document.getElementById("login-view-container"),this.appShell=document.getElementById("authenticated-shell"),this.mainViewport=document.getElementById("main-viewport"),this.sidebarNav=document.getElementById("sidebar-nav"),this.sidebar=document.getElementById("sidebar"),this.currentPage="dashboard",this.setupEventListeners(),this.init()}init(){y.isAuthenticated()?this.showAppShell():this.showLogin()}showLogin(){this.appShell.classList.add("d-none"),this.loginContainer.classList.remove("d-none"),F(this.loginContainer,()=>this.showAppShell())}showAppShell(){this.loginContainer.classList.add("d-none"),this.appShell.classList.remove("d-none"),this.updateUserHeader(),this.buildSidebar();const a=window.location.hash.replace("#",""),d=$.find(i=>i.id===a);this.navigateTo(d?a:"dashboard")}updateUserHeader(){const a=y.getCurrentUser();a&&(document.getElementById("user-name").textContent=a.name,document.getElementById("user-role-badge").textContent=a.role_name,document.getElementById("user-avatar").textContent=a.name.charAt(0).toUpperCase(),document.querySelectorAll(".active-role-btn").forEach(d=>{parseInt(d.getAttribute("data-switch-role"))===a.role_id?d.classList.add("active"):d.classList.remove("active")}))}buildSidebar(){const a=y.getCurrentUser();if(!a)return;const d=$.filter(i=>i.roles.includes(a.role_id));this.sidebarNav.innerHTML=d.map(i=>`
+  `;const i=o.querySelector("#profile-alert");function e(n,u="success"){i.className=`alert alert-${u} rounded-3 text-xs mb-3 fade-in`,i.textContent=n,i.classList.remove("d-none"),setTimeout(()=>{i.classList.add("d-none")},4e3)}o.querySelector("#profile-info-form").addEventListener("submit",n=>{n.preventDefault();const u=o.querySelector("#prof-name").value;m.updateRow("USER",a.user_id,{name:u}),a.name=u,document.getElementById("user-name").textContent=u,e("Profile name updated successfully!","success")}),o.querySelector("#password-change-form").addEventListener("submit",n=>{n.preventDefault();const u=o.querySelector("#curr-pass").value,c=o.querySelector("#new-pass").value,r=o.querySelector("#confirm-pass").value;if(u!==d.password){e("Current password entered is incorrect.","danger");return}if(c!==r){e("New password and confirmation do not match.","danger");return}m.updateRow("USER",a.user_id,{password:c}),o.querySelector("#curr-pass").value="",o.querySelector("#new-pass").value="",o.querySelector("#confirm-pass").value="",e("Account password changed successfully!","success")})}const $=[{id:"dashboard",label:"Dashboard",icon:"bi-grid-1x2",roles:[1,2,3,4],render:B},{id:"users",label:"User Management",icon:"bi-shield-person",roles:[1],render:H},{id:"students",label:"Student Management",icon:"bi-mortarboard",roles:[1,2],render:G},{id:"companies",label:"Company Management",icon:"bi-building",roles:[1,2],render:J},{id:"jobs",label:"Job Postings",icon:"bi-briefcase",roles:[1,2,3,4],render:Y},{id:"applications",label:"Applications",icon:"bi-file-earmark-check",roles:[1,2,3,4],render:W},{id:"interviews",label:"Interview Schedule",icon:"bi-calendar-event",roles:[1,2,3,4],render:Q},{id:"trainings",label:"Training Programs",icon:"bi-award",roles:[1,2,3,4],render:K},{id:"placements",label:"Placement Records",icon:"bi-journal-check",roles:[1,2],render:z},{id:"reports",label:"Reports & Analytics",icon:"bi-bar-chart-line",roles:[1,2],render:Z},{id:"profile",label:"Profile & Settings",icon:"bi-person-gear",roles:[1,2,3,4],render:X}];class ee{constructor(){this.loginContainer=document.getElementById("login-view-container"),this.appShell=document.getElementById("authenticated-shell"),this.mainViewport=document.getElementById("main-viewport"),this.sidebarNav=document.getElementById("sidebar-nav"),this.sidebar=document.getElementById("sidebar"),this.currentPage="dashboard",this.setupEventListeners(),this.init()}init(){y.isAuthenticated()?this.showAppShell():this.showLogin()}showLogin(){this.appShell.classList.add("d-none"),this.loginContainer.classList.remove("d-none"),F(this.loginContainer,()=>this.showAppShell())}showAppShell(){this.loginContainer.classList.add("d-none"),this.appShell.classList.remove("d-none"),this.updateUserHeader(),this.buildSidebar();const a=window.location.hash.replace("#",""),d=$.find(i=>i.id===a);this.navigateTo(d?a:"dashboard")}updateUserHeader(){const a=y.getCurrentUser();a&&(document.getElementById("user-name").textContent=a.name,document.getElementById("user-role-badge").textContent=a.role_name,document.getElementById("user-avatar").textContent=a.name.charAt(0).toUpperCase(),document.querySelectorAll(".active-role-btn").forEach(d=>{parseInt(d.getAttribute("data-switch-role"))===a.role_id?d.classList.add("active"):d.classList.remove("active")}))}buildSidebar(){const a=y.getCurrentUser();if(!a)return;const d=$.filter(i=>i.roles.includes(a.role_id));this.sidebarNav.innerHTML=d.map(i=>`
       <a class="nav-link ${this.currentPage===i.id?"active":""}" href="#${i.id}" data-page="${i.id}">
         <i class="bi ${i.icon}"></i>
         <span>${i.label}</span>
       </a>
-    `).join(""),this.sidebarNav.querySelectorAll(".nav-link").forEach(i=>{i.addEventListener("click",t=>{t.preventDefault();const o=i.getAttribute("data-page");this.navigateTo(o)})})}navigateTo(a){const d=y.getCurrentUser(),i=$.find(t=>t.id===a);if(!i||!i.roles.includes(d.role_id)){this.navigateTo("dashboard");return}this.currentPage=a,window.location.hash=a,this.sidebarNav.querySelectorAll(".nav-link").forEach(t=>{t.getAttribute("data-page")===a?t.classList.add("active"):t.classList.remove("active")}),this.mainViewport.scrollTop=0,i.render(this.mainViewport,t=>this.navigateTo(t)),window.innerWidth<=768&&this.sidebar.classList.add("collapsed")}setupEventListeners(){var a,d,i;(a=document.getElementById("sidebar-toggle"))==null||a.addEventListener("click",()=>{this.sidebar.classList.toggle("collapsed")}),(d=document.getElementById("logout-btn"))==null||d.addEventListener("click",t=>{t.preventDefault(),y.logout(),this.showLogin()}),document.querySelectorAll(".active-role-btn").forEach(t=>{t.addEventListener("click",()=>{const o=parseInt(t.getAttribute("data-switch-role"));y.switchRole(o),this.showAppShell()})}),(i=document.getElementById("view-security-log-btn"))==null||i.addEventListener("click",t=>{t.preventDefault(),this.openSecurityLogModal()}),window.addEventListener("hashchange",()=>{const t=window.location.hash.replace("#","");t&&t!==this.currentPage&&this.navigateTo(t)})}openSecurityLogModal(){const a=p.getTable("SECURITY_LOG"),d=p.getTable("USER"),i=document.getElementById("ctpmsModalTitle"),t=document.getElementById("ctpmsModalBody"),o=document.getElementById("ctpmsModalFooter");i.textContent="Session Security Audit Log (SRS Section 5.1 & 8.10)",t.innerHTML=`
+    `).join(""),this.sidebarNav.querySelectorAll(".nav-link").forEach(i=>{i.addEventListener("click",e=>{e.preventDefault();const n=i.getAttribute("data-page");this.navigateTo(n)})})}navigateTo(a){const d=y.getCurrentUser(),i=$.find(e=>e.id===a);if(!i||!i.roles.includes(d.role_id)){this.navigateTo("dashboard");return}this.currentPage=a,window.location.hash=a,this.sidebarNav.querySelectorAll(".nav-link").forEach(e=>{e.getAttribute("data-page")===a?e.classList.add("active"):e.classList.remove("active")}),this.mainViewport.scrollTop=0,i.render(this.mainViewport,e=>this.navigateTo(e)),window.innerWidth<=768&&this.sidebar.classList.add("collapsed")}setupEventListeners(){var a,d,i;(a=document.getElementById("sidebar-toggle"))==null||a.addEventListener("click",()=>{this.sidebar.classList.toggle("collapsed")}),(d=document.getElementById("logout-btn"))==null||d.addEventListener("click",e=>{e.preventDefault(),y.logout(),this.showLogin()}),document.querySelectorAll(".active-role-btn").forEach(e=>{e.addEventListener("click",()=>{const n=parseInt(e.getAttribute("data-switch-role"));y.switchRole(n),this.showAppShell()})}),(i=document.getElementById("view-security-log-btn"))==null||i.addEventListener("click",e=>{e.preventDefault(),this.openSecurityLogModal()}),window.addEventListener("hashchange",()=>{const e=window.location.hash.replace("#","");e&&e!==this.currentPage&&this.navigateTo(e)})}openSecurityLogModal(){const a=m.getTable("SECURITY_LOG"),d=m.getTable("USER"),i=document.getElementById("ctpmsModalTitle"),e=document.getElementById("ctpmsModalBody"),n=document.getElementById("ctpmsModalFooter");i.textContent="Session Security Audit Log (SRS Section 5.1 & 8.10)",e.innerHTML=`
       <div class="table-responsive" style="max-height: 400px;">
         <table class="table table-sm table-hover align-middle">
           <thead>
@@ -1410,7 +1410,7 @@ Issued by TRCAC Placement Cell`)})}),n.querySelectorAll(".manage-attendance-btn"
           <tbody>
             ${a.slice().reverse().map(c=>{const r=d.find(h=>h.user_id===c.user_id)||{};return`
                 <tr>
-                  <td>#${c.log_id}</td>
+                  <td>#${c.security_log_id||c.log_id}</td>
                   <td class="fw-bold">${r.name||"User #"+c.user_id}</td>
                   <td class="text-muted text-xs">${c.entry_time}</td>
                   <td class="text-muted text-xs">${c.exit_time||'<span class="badge bg-success-subtle text-success">Active Session</span>'}</td>
@@ -1420,6 +1420,6 @@ Issued by TRCAC Placement Cell`)})}),n.querySelectorAll(".manage-attendance-btn"
           </tbody>
         </table>
       </div>
-    `,o.innerHTML=`
+    `,n.innerHTML=`
       <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Close Audit Log</button>
     `,new bootstrap.Modal(document.getElementById("ctpmsModal")).show()}}document.addEventListener("DOMContentLoaded",()=>{new ee});
