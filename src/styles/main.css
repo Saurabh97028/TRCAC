@@ -43,8 +43,10 @@ h1, h2, h3, h4, h5, h6, .brand-title {
 .top-navbar {
   background-color: #ffffff;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  min-height: 64px;
   height: 64px;
   z-index: 1030;
+  box-sizing: border-box;
 }
 
 .h-calc-viewport {
