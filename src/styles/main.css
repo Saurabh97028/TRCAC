@@ -164,7 +164,8 @@ h1, h2, h3, h4, h5, h6, .brand-title {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 .login-card {
@@ -175,6 +176,13 @@ h1, h2, h3, h4, h5, h6, .brand-title {
   backdrop-filter: blur(12px);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
   border: 1px solid rgba(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+.mw-100 {
+  max-width: 100% !important;
 }
 
 /* Quick Role Switch Buttons */
@@ -211,5 +219,26 @@ h1, h2, h3, h4, h5, h6, .brand-title {
   }
   .table-responsive {
     -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (max-width: 576px) {
+  .login-card {
+    padding: 1.25rem !important;
+    max-width: 100% !important;
+  }
+  .badge {
+    white-space: normal !important;
+    word-break: break-word;
+  }
+  .main-content {
+    padding: 0.75rem !important;
+  }
+  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  .card-stat {
+    padding: 0.85rem !important;
   }
 }

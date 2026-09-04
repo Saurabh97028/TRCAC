@@ -2,14 +2,14 @@ import { auth } from '../services/auth.js';
 
 export function renderLogin(container, onLoginSuccess) {
   container.innerHTML = `
-    <div class="login-bg fade-in">
-      <div class="card login-card p-4 p-md-5">
+    <div class="login-bg fade-in p-2 p-sm-3 p-md-4">
+      <div class="card login-card p-3 p-sm-4 p-md-5">
         <div class="text-center mb-4">
           <div class="brand-logo bg-primary text-white rounded-3 d-inline-flex align-items-center justify-content-center fw-bold fs-3 px-3 py-2 mb-3 shadow-sm">
             CTPMS
           </div>
-          <h3 class="fw-bold text-navy mb-1">College Placement System</h3>
-          <p class="text-muted text-sm mb-0">Thakur Ramnarayan College of Arts & Commerce</p>
+          <h3 class="fw-bold text-navy mb-1 fs-4 fs-sm-3 text-wrap">College Placement System</h3>
+          <p class="text-muted text-sm mb-0 text-wrap">Thakur Ramnarayan College of Arts & Commerce</p>
         </div>
 
         <div id="login-alert" class="alert alert-danger d-none text-xs rounded-3" role="alert"></div>
@@ -39,11 +39,11 @@ export function renderLogin(container, onLoginSuccess) {
           </button>
         </form>
 
-        <div class="text-center mt-3 pt-3 border-top">
-          <span class="badge bg-light text-secondary border text-xs px-3 py-1.5 rounded-pill mb-2">
+        <div class="text-center mt-3 pt-3 border-top w-100">
+          <span class="badge bg-light text-secondary border text-xs px-3 py-2 rounded-pill mb-2 text-wrap lh-base d-inline-block mw-100" style="white-space: normal; word-break: break-word;">
             <i class="bi bi-shield-check text-success me-1"></i> Connected to Google Firebase Auth & Firestore DB
           </span>
-          <div class="text-muted text-xs mt-1">Academic Year 2026–2027 • TRCAC Placement Cell</div>
+          <div class="text-muted text-xs mt-1 text-wrap">Academic Year 2026–2027 • TRCAC Placement Cell</div>
         </div>
       </div>
     </div>
