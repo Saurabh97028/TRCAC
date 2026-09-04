@@ -184,7 +184,7 @@ class App {
     const modalBody = document.getElementById('ctpmsModalBody');
     const modalFooter = document.getElementById('ctpmsModalFooter');
 
-    modalTitle.textContent = 'Session Security Audit Log (SRS Section 5.1 & 8.10)';
+    modalTitle.textContent = 'Session Security Audit Log';
     modalBody.innerHTML = `
       <div class="table-responsive" style="max-height: 400px;">
         <table class="table table-sm table-hover align-middle">

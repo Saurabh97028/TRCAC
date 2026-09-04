@@ -27,7 +27,10 @@ export function renderLogin(container, onLoginSuccess) {
             <label class="form-label text-xs fw-bold text-uppercase text-muted">Password</label>
             <div class="input-group">
               <span class="input-group-text bg-light border-end-0 text-muted"><i class="bi bi-lock"></i></span>
-              <input type="password" id="login-password" class="form-control border-start-0 ps-0" placeholder="password" required>
+              <input type="password" id="login-password" class="form-control border-start-0 border-end-0 ps-0" placeholder="password" required>
+              <button class="btn btn-light border border-start-0 text-muted" type="button" id="toggle-password" title="Toggle password visibility">
+                <i class="bi bi-eye" id="toggle-password-icon"></i>
+              </button>
             </div>
           </div>
 
@@ -48,6 +51,15 @@ export function renderLogin(container, onLoginSuccess) {
 
   const form = container.querySelector('#login-form');
   const alertBox = container.querySelector('#login-alert');
+  const passInput = container.querySelector('#login-password');
+  const toggleBtn = container.querySelector('#toggle-password');
+  const toggleIcon = container.querySelector('#toggle-password-icon');
+
+  toggleBtn.addEventListener('click', () => {
+    const isPassword = passInput.getAttribute('type') === 'password';
+    passInput.setAttribute('type', isPassword ? 'text' : 'password');
+    toggleIcon.className = isPassword ? 'bi bi-eye-slash' : 'bi bi-eye';
+  });
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
